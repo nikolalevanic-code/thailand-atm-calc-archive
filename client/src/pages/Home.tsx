@@ -23,20 +23,7 @@ export default function Home() {
       <nav className="sticky top-0 z-40 bg-brand border-b border-white/10">
         <div className="container flex items-center justify-between h-14">
           <a href="/" className="flex items-center gap-2 no-underline">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="3" y="2" width="22" height="24" rx="3" fill="white"/>
-              <rect x="6" y="5" width="16" height="5" rx="1.5" fill="#4A1E8C"/>
-              <rect x="6" y="13" width="4" height="3" rx="1" fill="#4A1E8C"/>
-              <rect x="12" y="13" width="4" height="3" rx="1" fill="#4A1E8C"/>
-              <rect x="18" y="13" width="4" height="3" rx="1" fill="#4A1E8C"/>
-              <rect x="6" y="17.5" width="4" height="3" rx="1" fill="#4A1E8C"/>
-              <rect x="12" y="17.5" width="4" height="3" rx="1" fill="#4A1E8C"/>
-              <rect x="18" y="17.5" width="4" height="3" rx="1" fill="#4A1E8C"/>
-              <rect x="6" y="22" width="4" height="3" rx="1" fill="#4A1E8C"/>
-              <rect x="12" y="22" width="4" height="3" rx="1" fill="#4A1E8C"/>
-              <rect x="18" y="22" width="4" height="3" rx="1" fill="#7C3AED"/>
-              <text x="20" y="24.6" textAnchor="middle" fontFamily="system-ui" fontSize="3.5" fontWeight="800" fill="white">฿</text>
-            </svg>
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663310737769/Wco5JLMAZnC5jH2ae5jL7D/calc-icon-baht-user_2cd03a0a.png" alt="Thailand ATM Calculator" className="w-7 h-7 object-contain" />
             <span className="font-display text-base text-white font-medium hidden sm:block">
               Thailand ATM Calculator
             </span>
