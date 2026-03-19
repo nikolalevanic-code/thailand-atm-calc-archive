@@ -13,6 +13,7 @@ import { ExternalLink } from 'lucide-react';
 const HERO_IMAGE = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663310737769/Wco5JLMAZnC5jH2ae5jL7D/hero-atm-thailand-duddaiCAwKANMt2Ryyf287.webp';
 const ATM_SCREEN_IMAGE = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663310737769/Wco5JLMAZnC5jH2ae5jL7D/atm-screen-decline-PXzjD5Pzncqury5Uv2HEbj.webp';
 const TEMPLE_IMAGE = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663310737769/Wco5JLMAZnC5jH2ae5jL7D/thai-temple-abstract-ShCWnQd5LkMvnmh3xumnNj.webp';
+const CALC_ICON = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663310737769/Wco5JLMAZnC5jH2ae5jL7D/calc-icon-baht_e612f6a1.svg';
 
 export default function Home() {
   return (
@@ -22,7 +23,7 @@ export default function Home() {
       <nav className="sticky top-0 z-40 bg-brand border-b border-white/10">
         <div className="container flex items-center justify-between h-14">
           <a href="/" className="flex items-center gap-2 no-underline">
-            <img src={TEMPLE_IMAGE} alt="Thailand ATM Calculator" className="w-7 h-7 object-contain brightness-0 invert" />
+            <img src={CALC_ICON} alt="Thailand ATM Calculator" className="w-7 h-7 object-contain" />
             <span className="font-display text-base text-white font-medium hidden sm:block">
               Thailand ATM Calculator
             </span>
