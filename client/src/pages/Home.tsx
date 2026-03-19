@@ -23,10 +23,10 @@ export default function Home() {
         <div className="container flex items-center justify-between h-14">
           <a href="/" className="flex items-center gap-2 no-underline">
             <img src={TEMPLE_IMAGE} alt="Thailand ATM Calculator" className="w-7 h-7 object-contain brightness-0 invert" />
-            <span className="font-serif text-base text-white font-medium hidden sm:block">
+            <span className="font-display text-base text-white font-medium hidden sm:block">
               Thailand ATM Calculator
             </span>
-            <span className="font-serif text-base text-white font-medium sm:hidden">
+            <span className="font-display text-base text-white font-medium sm:hidden">
               ATM Calculator
             </span>
           </a>
@@ -45,7 +45,7 @@ export default function Home() {
             {/* Left: headline + calculator */}
             <div className="space-y-6">
               <div className="space-y-4">
-                <h1 className="font-serif text-3xl sm:text-4xl lg:text-4xl text-white leading-tight">
+                <h1 className="font-display text-3xl sm:text-4xl lg:text-4xl text-white leading-tight">
                   How much will your ATM withdrawal cost in Thailand?
                 </h1>
                 <p className="text-white/80 text-base leading-relaxed max-w-lg">
@@ -90,7 +90,7 @@ export default function Home() {
       <section id="how-it-works" className="bg-muted/30 border-y border-border py-12 sm:py-16">
         <div className="container">
           <div className="max-w-3xl mx-auto">
-            <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-2">
+            <h2 className="font-display text-2xl sm:text-3xl text-foreground mb-2">
               How it works
             </h2>
             <p className="text-muted-foreground mb-10">
@@ -147,7 +147,7 @@ export default function Home() {
         <div className="container">
           <div className="max-w-3xl mx-auto space-y-8">
             <div>
-              <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-2">
+              <h2 className="font-display text-2xl sm:text-3xl text-foreground mb-2">
                 Why the difference matters
               </h2>
               <p className="text-muted-foreground">
@@ -195,7 +195,7 @@ export default function Home() {
                 { stat: '86 cards', label: 'Researched across 14 tourist-origin countries', color: 'text-brand' },
               ].map((item, i) => (
                 <div key={i} className="bg-muted/30 rounded-lg p-4 text-center border border-border">
-                  <div className={`font-serif text-2xl font-medium ${item.color}`}>{item.stat}</div>
+                  <div className={`font-display text-2xl font-medium ${item.color}`}>{item.stat}</div>
                   <div className="text-xs text-muted-foreground mt-1 leading-snug">{item.label}</div>
                 </div>
               ))}
@@ -218,7 +218,7 @@ export default function Home() {
         <div className="container">
           <div className="max-w-3xl mx-auto space-y-6">
             <div>
-              <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-2">
+              <h2 className="font-display text-2xl sm:text-3xl text-foreground mb-2">
                 Cards with lower international ATM fees
               </h2>
               <p className="text-muted-foreground text-sm">
@@ -290,7 +290,7 @@ export default function Home() {
       <section id="methodology" className="py-12 sm:py-14 bg-muted/20 border-t border-border">
         <div className="container">
           <div className="max-w-3xl mx-auto space-y-4">
-            <h2 className="font-serif text-2xl text-foreground">Methodology</h2>
+            <h2 className="font-display text-2xl text-foreground">Methodology</h2>
             <div className="prose prose-sm max-w-none text-foreground/80 space-y-3">
               <p>
                 <strong>Exchange rate calibration:</strong> The FX rate multipliers used in this calculator are derived from a real Australian CommBank transaction made at an SCB ATM in Thailand on February 3, 2026. The card network applied a rate of 1 AUD = 21.7328 THB (approximately 1.1% better than the mid-market spot rate). The ATM's DCC offer was 1 AUD = 20.6613 THB (approximately 4% worse than spot). We use conservative multipliers: card network = spot × 1.011, ATM DCC = spot × 0.960.
@@ -326,7 +326,7 @@ export default function Home() {
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <img src={TEMPLE_IMAGE} alt="" className="w-6 h-6 object-contain opacity-80" />
-                  <span className="font-serif text-background text-sm font-medium">Thailand ATM Calculator</span>
+                  <span className="font-display text-background text-sm font-medium">Thailand ATM Calculator</span>
                 </div>
                 <p className="text-xs text-background/50 max-w-xs leading-relaxed">
                   An independent tool to help tourists make informed decisions about currency conversion at Thai ATMs.

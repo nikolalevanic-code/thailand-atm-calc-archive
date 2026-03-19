@@ -57,7 +57,7 @@ export default function BankRequestModal({ open, onClose }: BankRequestModalProp
     <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent className="max-w-md">
         <DialogHeader>
-          <DialogTitle className="font-serif text-xl">Request your bank</DialogTitle>
+          <DialogTitle className="font-display text-xl">Request your bank</DialogTitle>
         </DialogHeader>
 
         {submitted ? (
