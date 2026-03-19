@@ -19,44 +19,46 @@ export default function Home() {
     <div className="min-h-screen bg-background">
 
       {/* ── Top nav ── */}
-      <nav className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-border">
+      <nav className="sticky top-0 z-40 bg-brand border-b border-white/10">
         <div className="container flex items-center justify-between h-14">
           <a href="/" className="flex items-center gap-2 no-underline">
-            <img src={TEMPLE_IMAGE} alt="Thailand ATM Calculator" className="w-7 h-7 object-contain" />
-            <span className="font-serif text-base text-brand font-medium hidden sm:block">
+            <img src={TEMPLE_IMAGE} alt="Thailand ATM Calculator" className="w-7 h-7 object-contain brightness-0 invert" />
+            <span className="font-serif text-base text-white font-medium hidden sm:block">
               Thailand ATM Calculator
             </span>
-            <span className="font-serif text-base text-brand font-medium sm:hidden">
+            <span className="font-serif text-base text-white font-medium sm:hidden">
               ATM Calculator
             </span>
           </a>
-          <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <a href="#how-it-works" className="hover:text-foreground transition-colors hidden sm:block">How it works</a>
-            <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
-            <a href="#methodology" className="hover:text-foreground transition-colors hidden sm:block">Methodology</a>
+          <div className="flex items-center gap-4 text-sm text-white/70">
+            <a href="#how-it-works" className="hover:text-white transition-colors hidden sm:block">How it works</a>
+            <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
+            <a href="#methodology" className="hover:text-white transition-colors hidden sm:block">Methodology</a>
           </div>
         </div>
       </nav>
 
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-white">
+      <section className="relative overflow-hidden bg-brand">
         <div className="container py-10 sm:py-14 lg:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left: headline + calculator */}
             <div className="space-y-6">
-              <div className="space-y-3">
-                <div className="inline-flex items-center gap-2 text-xs font-medium text-brand bg-brand-surface px-3 py-1 rounded-full">
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand" />
-                  Free · Live rates · 86 cards across 14 countries
-                </div>
-                <h1 className="font-serif text-3xl sm:text-4xl lg:text-4xl text-foreground leading-tight">
-                  Should you accept the ATM's conversion offer in Thailand?
+              <div className="space-y-4">
+                <h1 className="font-serif text-3xl sm:text-4xl lg:text-4xl text-white leading-tight">
+                  How much will your ATM withdrawal cost in Thailand?
                 </h1>
-                <p className="text-foreground/70 text-base leading-relaxed max-w-lg">
-                  Thai ATMs offer to convert your withdrawal to your home currency on the spot.
-                  It sounds convenient — but it almost always costs you more.
-                  Enter your details below to see the real difference.
+                <p className="text-white/80 text-base leading-relaxed max-w-lg">
+                  Thai ATMs are notoriously expensive for tourists, with lots of confusing fees baked in.
+                  This site was built to give you a better idea of how much a withdrawal will cost you.
+                  Enter your withdrawal amount and home currency to see the exact cost in your money
+                  — including all bank fees and exchange rate margins. We’ll also tell you whether to
+                  accept or decline the ATM’s conversion offer.
                 </p>
+                <div className="inline-flex items-center gap-2 text-xs font-medium text-white/70 bg-white/10 px-3 py-1.5 rounded-full">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white/60" />
+                  Free · 86 cards across 14 countries
+                </div>
               </div>
 
               {/* Calculator */}
