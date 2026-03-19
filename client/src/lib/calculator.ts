@@ -3,8 +3,12 @@
  * Design: Calm Fintech Utility
  *
  * Calibration (from actual CommBank transaction, Feb 3 2026):
- *   card_network_rate = spot_rate × 1.011  (~1.1% better than spot)
- *   atm_dcc_rate      = spot_rate × 0.960  (~4% worse than spot)
+ *   Spot AUD/THB on Feb 3 2026: 22.2197
+ *   Without conversion effective rate: 21.7328 THB/AUD → 21.7328/22.2197 = 0.9781 of spot (~2.19% worse)
+ *   With conversion (DCC) quoted rate: 20.6613 THB/AUD → 20.6613/22.2197 = 0.9298 of spot (~7.02% worse)
+ *
+ *   card_network_rate = spot_rate × 0.978  (~2.2% worse than spot — card network margin)
+ *   atm_dcc_rate      = spot_rate × 0.930  (~7.0% worse than spot — DCC margin)
  *
  * Formula:
  *   total_thb = withdrawal_amount + thai_atm_fee
@@ -15,8 +19,8 @@
 
 import { CardProfile, DEFAULT_PROFILES } from './cardData';
 
-export const CARD_NETWORK_MULTIPLIER = 1.011;
-export const ATM_DCC_MULTIPLIER = 0.960;
+export const CARD_NETWORK_MULTIPLIER = 0.978; // card network takes ~2.2% margin vs spot
+export const ATM_DCC_MULTIPLIER = 0.930;       // DCC takes ~7.0% margin vs spot
 export const DEFAULT_THAI_ATM_FEE = 250; // THB
 
 export interface CalculatorInputs {

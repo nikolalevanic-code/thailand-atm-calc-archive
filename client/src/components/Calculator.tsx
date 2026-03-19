@@ -21,7 +21,7 @@ const CURRENCY_OPTIONS = Object.entries(CURRENCIES).map(([code, info]) => ({
 }));
 
 export default function Calculator() {
-  const [withdrawalAmount, setWithdrawalAmount] = useState<string>('3500');
+  const [withdrawalAmount, setWithdrawalAmount] = useState<string>('10000');
   const [currency, setCurrency] = useState<string>('AUD');
   const [selectedCard, setSelectedCard] = useState<CardProfile | null>(null);
   const [thaiAtmFee, setThaiAtmFee] = useState<string>(String(DEFAULT_THAI_ATM_FEE));
