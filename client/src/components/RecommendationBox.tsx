@@ -1,12 +1,12 @@
 /**
  * RecommendationBox — Savings summary with Pad Kra Pao count
  * Design: Calm Fintech Utility
- * Prominent savings pill + clear recommendation + fun Pad Kra Pao metric.
+ * Factual, trust-building framing. No directive language.
  */
 
 import { CalculationResult } from '@/lib/calculator';
 import { formatCurrency } from '@/lib/cardData';
-import { CheckCircle, AlertTriangle } from 'lucide-react';
+import { AlertTriangle } from 'lucide-react';
 
 interface RecommendationBoxProps {
   result: CalculationResult;
@@ -19,7 +19,6 @@ export default function RecommendationBox({ result }: RecommendationBoxProps) {
   const savingsTHBAbs = Math.abs(savingsTHB);
   const isMeaningful = savingsAbs >= 0.01;
 
-  const betterChoice = isWithoutBetter ? "Decline the ATM\u2019s conversion offer" : "Accept the ATM\u2019s conversion offer";
   const betterLabel = isWithoutBetter ? 'Without conversion' : 'With conversion';
 
   return (
@@ -28,18 +27,12 @@ export default function RecommendationBox({ result }: RecommendationBoxProps) {
         ? 'border-better bg-better-surface'
         : 'border-worse bg-worse-surface'
     }`}>
-      {/* Header */}
-      <div className="flex items-start gap-3">
-        <CheckCircle className={`w-6 h-6 mt-0.5 shrink-0 ${isWithoutBetter ? 'text-better' : 'text-worse'}`} />
-        <div>
-          <p className="font-semibold text-foreground text-base leading-snug">
-            {betterChoice}
-          </p>
-          <p className="text-sm text-foreground/70 mt-0.5">
-            <span className={`font-semibold ${isWithoutBetter ? 'text-better' : 'text-worse'}`}>{betterLabel}</span>{' '}
-            is the cheaper option for this withdrawal.
-          </p>
-        </div>
+      {/* Factual statement */}
+      <div>
+        <p className="font-semibold text-foreground text-base leading-snug">
+          <span className={`${isWithoutBetter ? 'text-better' : 'text-worse'}`}>{betterLabel}</span>{' '}
+          is the cheaper option for this withdrawal.
+        </p>
       </div>
 
       {/* Savings pill */}
@@ -59,9 +52,9 @@ export default function RecommendationBox({ result }: RecommendationBoxProps) {
       {/* Pad Kra Pao metric */}
       {padKraPao >= 1 && (
         <div className="flex items-center gap-2 text-sm text-foreground/80 bg-white/60 rounded-md px-3 py-2">
-          <span className="text-lg">🍳</span>
+          <span className="text-lg">🔥</span>
           <span>
-            That's roughly <strong>{padKraPao} plate{padKraPao > 1 ? 's' : ''} of Pad Kra Pao</strong> saved
+            That's <strong>{padKraPao} plate{padKraPao > 1 ? 's' : ''} of delicious Pad Kra Pao</strong>
             <span className="text-muted-foreground"> (at ~70 THB each)</span>
           </span>
         </div>

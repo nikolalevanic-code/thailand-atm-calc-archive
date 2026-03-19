@@ -84,26 +84,21 @@ export default function Calculator() {
       {/* Calculator inputs */}
       <div className="p-5 sm:p-6 space-y-5">
 
-        {/* FX rate status bar */}
+        {/* FX rate status bar — only show errors or refresh button, not 'Live rates' line */}
         <div className="flex items-center justify-between text-xs text-muted-foreground">
           <div className="flex items-center gap-1.5">
             {fxLoading ? (
-              <><Loader2 className="w-3 h-3 animate-spin" /> Loading live rates...</>
+              <><Loader2 className="w-3 h-3 animate-spin" /> Loading rates...</>
             ) : fxError ? (
               <><AlertCircle className="w-3 h-3 text-worse" /> Using approximate rates (live fetch failed)</>
             ) : usingFallback ? (
               <><AlertCircle className="w-3 h-3 text-worse" /> Using approximate rates</>
-            ) : (
-              <>
-                <span className="w-2 h-2 rounded-full bg-better inline-block" />
-                Live rates · Updated {fxLastUpdated}
-              </>
-            )}
+            ) : null}
           </div>
           {!fxLoading && (
             <button
               onClick={loadRates}
-              className="flex items-center gap-1 hover:text-foreground transition-colors"
+              className="flex items-center gap-1 hover:text-foreground transition-colors ml-auto"
               aria-label="Refresh rates"
             >
               <RefreshCw className="w-3 h-3" /> Refresh
@@ -210,10 +205,7 @@ export default function Calculator() {
       {/* Results section */}
       {hasResult && result && (
         <div className="border-t border-border/60 bg-white p-5 sm:p-6 space-y-5">
-          {/* Recommendation box */}
-          <RecommendationBox result={result} />
-
-          {/* Results table */}
+          {/* Results table — primary highlight */}
           <div>
             <h3 className="text-sm font-semibold text-foreground/70 uppercase tracking-wide mb-3">
               Full breakdown
@@ -224,6 +216,9 @@ export default function Calculator() {
               thaiAtmFeeTHB={parseFloat(thaiAtmFee) || 0}
             />
           </div>
+
+          {/* Recommendation box — below the table */}
+          <RecommendationBox result={result} />
 
           {/* Disclaimer */}
           <p className="text-xs text-muted-foreground border-t border-border pt-3">

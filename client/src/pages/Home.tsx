@@ -8,6 +8,7 @@
 
 import Calculator from '@/components/Calculator';
 import FAQ from '@/components/FAQ';
+import TipsSection from '@/components/TipsSection';
 import { ExternalLink } from 'lucide-react';
 
 const HERO_IMAGE = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663310737769/Wco5JLMAZnC5jH2ae5jL7D/hero-atm-thailand-duddaiCAwKANMt2Ryyf287.webp';
@@ -46,7 +47,7 @@ export default function Home() {
             {/* Left: headline + calculator */}
             <div className="space-y-6">
               <div className="space-y-4">
-                <h1 className="font-display text-3xl sm:text-4xl lg:text-4xl text-white leading-tight">
+                <h1 className="font-display text-3xl sm:text-4xl lg:text-4xl text-white leading-tight font-extrabold">
                   How much will your ATM withdrawal cost in Thailand?
                 </h1>
                 <p className="text-white/80 text-base leading-relaxed max-w-lg">
@@ -86,6 +87,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── Tips ── */}
+      <TipsSection />
 
       {/* ── How it works ── */}
       <section id="how-it-works" className="bg-muted/30 border-y border-border py-12 sm:py-16">
