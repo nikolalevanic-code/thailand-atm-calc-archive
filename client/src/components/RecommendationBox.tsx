@@ -54,7 +54,7 @@ export default function RecommendationBox({ result }: RecommendationBoxProps) {
         <div className="flex items-center gap-2 text-sm text-foreground/80 bg-white/60 rounded-md px-3 py-2">
           <span className="text-lg">🔥</span>
           <span>
-            That's {padKraPao} plate{padKraPao > 1 ? 's' : ''} of delicious Pad Kra Pao!
+            That's <strong>{padKraPao}</strong> plate{padKraPao > 1 ? 's' : ''} of delicious Pad Kra Pao!
           </span>
         </div>
       )}

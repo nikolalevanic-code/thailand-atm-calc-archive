@@ -27,7 +27,7 @@ export default function Home() {
             </span>
           </a>
           <div className="flex items-center gap-4 text-sm text-white/70">
-            <a href="#how-it-works" className="hover:text-white transition-colors hidden sm:block">How it works</a>
+            <a href="#how-it-works" className="hover:text-white transition-colors hidden sm:block">ATM conversion?</a>
             <a href="#tips" className="hover:text-white transition-colors hidden sm:block">Tips</a>
             <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
             <a href="#methodology" className="hover:text-white transition-colors hidden sm:block">Methodology</a>
@@ -46,13 +46,13 @@ export default function Home() {
               <p className="text-white/80 text-base leading-relaxed max-w-xl">
                 Thai ATMs are notoriously expensive for tourists, with lots of confusing fees baked in.
                 This site was built to give you a better idea of how much a withdrawal will cost you.
-                Enter your withdrawal amount and home currency to see the exact cost in your money
-                — including all bank fees and exchange rate margins. We'll also tell you whether to
-                accept or decline the ATM's conversion offer.
+                Enter your withdrawal amount and home currency to get your estimated cost, including
+                bank and exchange rate-related fees. We'll also suggest whether to accept or decline
+                the ATM's conversion offer.
               </p>
               <div className="inline-flex items-center gap-2 text-xs font-medium text-white/70 bg-white/10 px-3 py-1.5 rounded-full">
                 <span className="w-1.5 h-1.5 rounded-full bg-white/60" />
-                Free · 86 cards across 14 countries
+                Free · 84 cards across 14 countries
               </div>
             </div>
 
@@ -70,7 +70,7 @@ export default function Home() {
         <div className="container">
           <div className="max-w-3xl mx-auto">
             <h2 className="font-display text-2xl sm:text-3xl text-foreground mb-2 font-bold">
-              How it works
+              With or without conversion?
             </h2>
             <p className="text-muted-foreground mb-10">
               Understanding the two options every Thai ATM presents to foreign cardholders.
@@ -111,7 +111,7 @@ export default function Home() {
               {[
                 { stat: '~7%', label: 'Typical DCC rate penalty vs mid-market', color: 'text-worse' },
                 { stat: '250 THB', label: 'Standard Thai ATM access fee (all major banks)', color: 'text-foreground' },
-                { stat: '86 cards', label: 'Researched across 14 tourist-origin countries', color: 'text-brand' },
+                { stat: '84 cards', label: 'Researched across 14 tourist-origin countries', color: 'text-brand' },
               ].map((item, i) => (
                 <div key={i} className="bg-white rounded-lg p-4 text-center border border-border">
                   <div className={`font-display text-2xl font-bold ${item.color}`}>{item.stat}</div>
@@ -209,7 +209,7 @@ export default function Home() {
                 <strong>Live exchange rates:</strong> Mid-market spot rates are fetched daily from the Open Exchange Rates API and cached in your browser for 24 hours. If the live fetch fails, approximate rates from March 2026 are used as a fallback.
               </p>
               <p>
-                <strong>Card fee database:</strong> 86 card profiles across 14 tourist-origin countries, sourced from official bank fee schedules and product pages. Last verified March 2026. Confidence levels (high/medium) are shown for each card. We do not include low-confidence data.
+                <strong>Card fee database:</strong> 84 card profiles across 14 tourist-origin countries, sourced from official bank fee schedules and product pages. Last verified March 2026. Confidence levels (high/medium) are shown for each card. We do not include low-confidence data.
               </p>
               <p>
                 <strong>Thai ATM fees:</strong> The default Thai ATM access fee is 250 THB, which is the standard rate charged by SCB, Bangkok Bank, Kasikorn, Krungthai, and Krungsri to foreign cardholders. Some ATMs charge 220 THB. You can override this in the calculator.
@@ -239,7 +239,7 @@ export default function Home() {
                 {[
                   { label: 'Methodology', href: '#methodology' },
                   { label: 'FAQ', href: '#faq' },
-                  { label: 'How it works', href: '#how-it-works' },
+                  { label: 'ATM conversion?', href: '#how-it-works' },
                 ].map(link => (
                   <a key={link.label} href={link.href} className="block text-background/60 hover:text-background transition-colors">
                     {link.label}

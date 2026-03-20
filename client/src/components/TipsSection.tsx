@@ -15,9 +15,15 @@ interface Tip {
 
 const TIPS: Tip[] = [
   {
+    emoji: '🏧',
+    title: 'AEON ATMs are the cheapest',
+    summary: 'AEON ATMs charge only 150 THB per withdrawal — significantly less than the 220–250 THB charged by most Thai bank ATMs. Worth seeking out.',
+    detail: 'AEON ATMs are found in AEON malls and some Big C and Makro stores across Thailand, particularly in Bangkok, Chiang Mai, and Pattaya. They accept Visa, Mastercard, and most international cards. The lower fee applies to all foreign cards.',
+  },
+  {
     emoji: '💸',
     title: 'Withdraw more, withdraw less often',
-    summary: 'The 250 THB ATM fee is charged per transaction — not per baht. Fewer, larger withdrawals mean less wasted on flat fees.',
+    summary: 'The ATM fee is charged per transaction — not per baht. Fewer, larger withdrawals mean less wasted on flat fees.',
     detail: 'Most Thai ATMs dispense up to 20,000–30,000 THB per transaction. Check your home bank\'s per-transaction limit too, as some cap overseas withdrawals at a lower amount.',
   },
   {
@@ -37,6 +43,12 @@ const TIPS: Tip[] = [
     title: 'Say "phet nit noi" if you can\'t handle Thai spicy',
     summary: 'Thai food is genuinely spicy by default. "Phet nit noi" (เผ็ดนิดหน่อย) means "a little spicy." Your stomach will thank you.',
     detail: 'For no spice at all, say "mai phet" (ไม่เผ็ด). And if you\'re feeling brave, "phet mak" (เผ็ดมาก) means "very spicy" — proceed with confidence.',
+  },
+  {
+    emoji: '😊',
+    title: 'Smile!',
+    summary: 'Thailand is the "Land of Smiles" — returning a smile is deeply embedded in the culture. It goes a long way.',
+    detail: 'A genuine smile (known as the "Thai smile") is used to express friendliness, gratitude, and goodwill. Don\'t be surprised if locals smile at you unprompted — it\'s an invitation to connect, not a sales pitch.',
   },
 ];
 
