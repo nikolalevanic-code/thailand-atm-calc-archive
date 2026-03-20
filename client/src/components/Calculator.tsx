@@ -13,7 +13,7 @@ import BankCardSelector from './BankCardSelector';
 import ResultsTable from './ResultsTable';
 import RecommendationBox from './RecommendationBox';
 import BankRequestModal from './BankRequestModal';
-import { Loader2, RefreshCw, AlertCircle } from 'lucide-react';
+import { Loader2, RefreshCw, AlertCircle, Share2, Check } from 'lucide-react';
 
 const CURRENCY_OPTIONS = Object.entries(CURRENCIES).map(([code, info]) => ({
   code,
@@ -27,6 +27,29 @@ export default function Calculator() {
   const [thaiAtmFee, setThaiAtmFee] = useState<string>(String(DEFAULT_THAI_ATM_FEE));
   const [showAtmFeeOverride, setShowAtmFeeOverride] = useState(false);
   const [bankModalOpen, setBankModalOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  // Read URL params on mount to support shared links
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const amount = params.get('amount');
+    const cur = params.get('currency');
+    if (amount) setWithdrawalAmount(amount);
+    if (cur && CURRENCIES[cur]) setCurrency(cur);
+    // card param is handled after fxRates load — see card selector
+  }, []);
+
+  const handleShare = useCallback(() => {
+    const params = new URLSearchParams();
+    params.set('amount', withdrawalAmount);
+    params.set('currency', currency);
+    if (selectedCard) params.set('card', selectedCard.id);
+    const url = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+    navigator.clipboard.writeText(url).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  }, [withdrawalAmount, currency, selectedCard]);
 
   const [fxRates, setFxRates] = useState<Record<string, number> | null>(null);
   const [fxLoading, setFxLoading] = useState(true);
@@ -219,6 +242,20 @@ export default function Calculator() {
 
           {/* Recommendation box — below the table */}
           <RecommendationBox result={result} />
+
+          {/* Share button */}
+          <div className="flex justify-end">
+            <button
+              onClick={handleShare}
+              className="flex items-center gap-1.5 text-xs text-brand hover:text-brand/80 transition-colors font-medium"
+            >
+              {copied ? (
+                <><Check className="w-3.5 h-3.5" /> Link copied!</>
+              ) : (
+                <><Share2 className="w-3.5 h-3.5" /> Share this result</>
+              )}
+            </button>
+          </div>
 
           {/* Disclaimer */}
           <p className="text-xs text-muted-foreground border-t border-border pt-3">

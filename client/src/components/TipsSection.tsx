@@ -75,7 +75,7 @@ function TipItem({ tip }: { tip: Tip }) {
 
 export default function TipsSection() {
   return (
-    <section className="bg-white border-b border-border py-10 sm:py-12">
+    <section id="tips" className="bg-white border-b border-border py-10 sm:py-12">
       <div className="container">
         <div className="max-w-3xl mx-auto space-y-4">
           <div>

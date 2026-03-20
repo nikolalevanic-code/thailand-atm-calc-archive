@@ -28,6 +28,7 @@ export default function Home() {
           </a>
           <div className="flex items-center gap-4 text-sm text-white/70">
             <a href="#how-it-works" className="hover:text-white transition-colors hidden sm:block">How it works</a>
+            <a href="#tips" className="hover:text-white transition-colors hidden sm:block">Tips</a>
             <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
             <a href="#methodology" className="hover:text-white transition-colors hidden sm:block">Methodology</a>
           </div>
@@ -108,7 +109,7 @@ export default function Home() {
             {/* Stat boxes */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10">
               {[
-                { stat: '~5–7%', label: 'Typical DCC rate penalty vs mid-market', color: 'text-worse' },
+                { stat: '~7%', label: 'Typical DCC rate penalty vs mid-market', color: 'text-worse' },
                 { stat: '250 THB', label: 'Standard Thai ATM access fee (all major banks)', color: 'text-foreground' },
                 { stat: '86 cards', label: 'Researched across 14 tourist-origin countries', color: 'text-brand' },
               ].map((item, i) => (
