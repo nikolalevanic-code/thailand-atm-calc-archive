@@ -167,13 +167,17 @@ export default function BankCardSelector({
 
             {/* Footer */}
             <div className="p-2 border-t border-border">
-              <button
-                type="button"
-                onClick={() => { setOpen(false); onRequestBank(); }}
-                className="w-full text-xs text-center text-brand underline underline-offset-2 hover:text-brand/80 transition-colors py-1"
-              >
-                Don't see your bank? Request it here →
-              </button>
+                <p className="w-full text-xs text-center text-muted-foreground py-1 px-2 leading-relaxed">
+                Don't see your card? Email us at{' '}
+                <a
+                  href="mailto:hello@thailand-atm-calculator.com?subject=Card%20request"
+                  className="text-brand underline underline-offset-2 hover:text-brand/80 transition-colors"
+                  onClick={() => setOpen(false)}
+                >
+                  hello@thailand-atm-calculator.com
+                </a>
+                {' '}— we'll consider adding it if there's enough demand.
+              </p>
             </div>
           </div>
         )}

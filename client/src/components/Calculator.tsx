@@ -12,7 +12,6 @@ import { fetchThbRates, FALLBACK_RATES, isFallbackRate } from '@/lib/fxRate';
 import BankCardSelector from './BankCardSelector';
 import ResultsTable from './ResultsTable';
 import RecommendationBox from './RecommendationBox';
-import BankRequestModal from './BankRequestModal';
 import { Loader2, RefreshCw, AlertCircle, Share2, Check } from 'lucide-react';
 
 const CURRENCY_OPTIONS = Object.entries(CURRENCIES).map(([code, info]) => ({
@@ -26,7 +25,6 @@ export default function Calculator() {
   const [selectedCard, setSelectedCard] = useState<CardProfile | null>(null);
   const [thaiAtmFee, setThaiAtmFee] = useState<string>(String(DEFAULT_THAI_ATM_FEE));
   const [showAtmFeeOverride, setShowAtmFeeOverride] = useState(false);
-  const [bankModalOpen, setBankModalOpen] = useState(false);
   const [copied, setCopied] = useState(false);
 
   // Read URL params on mount to support shared links
@@ -176,7 +174,7 @@ export default function Calculator() {
           currency={currency}
           selectedCard={selectedCard}
           onSelect={setSelectedCard}
-          onRequestBank={() => setBankModalOpen(true)}
+          onRequestBank={() => {}}
         />
 
         {/* ATM fee override */}
@@ -275,7 +273,6 @@ export default function Calculator() {
         </div>
       )}
 
-      <BankRequestModal open={bankModalOpen} onClose={() => setBankModalOpen(false)} />
     </div>
   );
 }
