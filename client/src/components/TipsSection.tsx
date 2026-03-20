@@ -41,14 +41,14 @@ const TIPS: Tip[] = [
   {
     emoji: '🌶️',
     title: 'Say "phet nit noi" if you can\'t handle Thai spicy',
-    summary: 'Thai food is genuinely spicy by default. "Phet nit noi" (เผ็ดนิดหน่อย) means "a little spicy." Your stomach will thank you.',
+    summary: 'Thai food is genuinely spicy by default. "Phet nit noi" (เผ็ดนิดหน่อย) means "a little spicy." Start small first!',
     detail: 'For no spice at all, say "mai phet" (ไม่เผ็ด). And if you\'re feeling brave, "phet mak" (เผ็ดมาก) means "very spicy" — proceed with confidence.',
   },
   {
     emoji: '😊',
     title: 'Smile!',
     summary: 'Thailand is the "Land of Smiles" — returning a smile is deeply embedded in the culture. It goes a long way.',
-    detail: 'A genuine smile (known as the "Thai smile") is used to express friendliness, gratitude, and goodwill. Don\'t be surprised if locals smile at you unprompted — it\'s an invitation to connect, not a sales pitch.',
+    detail: 'The Thai smile is deeply rooted in Buddhist values of kindness and peace. It is used not just to be polite, but to ease social interactions and even diffuse tense situations.',
   },
 ];
 
