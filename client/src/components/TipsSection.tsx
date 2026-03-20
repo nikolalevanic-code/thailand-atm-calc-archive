@@ -15,7 +15,7 @@ interface Tip {
 
 const TIPS: Tip[] = [
   {
-    emoji: '🏧',
+    emoji: '⚡',
     title: 'AEON ATMs are the cheapest',
     summary: 'AEON ATMs charge only 150 THB per withdrawal — significantly less than the 220–250 THB charged by most Thai bank ATMs. Worth seeking out.',
     detail: 'AEON ATMs are found in AEON malls and some Big C and Makro stores across Thailand, particularly in Bangkok, Chiang Mai, and Pattaya. They accept Visa, Mastercard, and most international cards. The lower fee applies to all foreign cards.',

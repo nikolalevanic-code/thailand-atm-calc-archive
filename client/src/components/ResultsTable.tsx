@@ -32,22 +32,22 @@ function Row({
   subtext?: string;
 }) {
   return (
-    <tr className={`border-b border-border last:border-0 ${highlight ? 'bg-muted/20' : ''}`}>
-      <td className="py-3 pr-4 text-sm text-foreground/80 align-top w-[40%]">
-        <span className={bold ? 'font-semibold text-foreground' : ''}>{label}</span>
+    <tr className={`border-b border-border last:border-0 ${highlight ? 'bg-muted/30 border-t-2 border-t-border' : ''}`}>
+      <td className={`pr-4 text-foreground/80 align-top w-[40%] ${highlight ? 'py-4 text-base' : 'py-3 text-sm'}`}>
+        <span className={bold ? 'font-bold text-foreground' : ''}>{label}</span>
         {subtext && <div className="text-xs text-muted-foreground mt-0.5">{subtext}</div>}
       </td>
-      <td className={`py-3 px-3 text-sm text-right align-top w-[30%] ${
-        highlight && isWithoutBetter
-          ? 'text-better font-semibold'
-          : bold ? 'font-semibold' : ''
+      <td className={`px-3 text-right align-top w-[30%] ${
+        highlight
+          ? (isWithoutBetter ? 'py-4 text-base text-better font-bold' : 'py-4 text-base font-bold')
+          : bold ? 'py-3 text-sm font-semibold' : 'py-3 text-sm'
       }`}>
         {withoutVal}
       </td>
-      <td className={`py-3 pl-3 text-sm text-right align-top w-[30%] ${
-        highlight && !isWithoutBetter
-          ? 'text-better font-semibold'
-          : bold ? 'font-semibold' : ''
+      <td className={`pl-3 text-right align-top w-[30%] ${
+        highlight
+          ? (!isWithoutBetter ? 'py-4 text-base text-better font-bold' : 'py-4 text-base font-bold')
+          : bold ? 'py-3 text-sm font-semibold' : 'py-3 text-sm'
       }`}>
         {withVal}
       </td>
@@ -162,7 +162,7 @@ export default function ResultsTable({ result, withdrawalAmountTHB, thaiAtmFeeTH
             isWithoutBetter={isWithoutBetter}
           />
           <Row
-            label="Total cost to you"
+            label="Total estimated cost to you"
             withoutVal={`${fmt(wo.totalHome)} ${currency}`}
             withVal={`${fmt(wc.totalHome)} ${currency}`}
             isWithoutBetter={isWithoutBetter}

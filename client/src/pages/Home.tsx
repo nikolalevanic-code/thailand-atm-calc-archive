@@ -203,7 +203,7 @@ export default function Home() {
             <h2 className="font-display text-2xl text-foreground font-bold">Methodology</h2>
             <div className="prose prose-sm max-w-none text-foreground/80 space-y-3">
               <p>
-                <strong>Exchange rate calibration:</strong> The FX rate multipliers used in this calculator are derived from a real Australian CommBank transaction made at an SCB ATM in Thailand on February 3, 2026. The spot AUD/THB rate on that date was 22.2197. The card network applied a rate of 1 AUD = 21.7328 THB (approximately 2.2% worse than spot). The ATM's DCC offer was 1 AUD = 20.6613 THB (approximately 7.0% worse than spot). We use these calibrated multipliers: card network = spot × 0.978, ATM DCC = spot × 0.930.
+                <strong>Exchange rate calibration:</strong> The FX rate multipliers used in this calculator are derived from a real Australian CommBank transaction made at an SCB ATM in Thailand on February 3, 2026. The spot AUD/THB rate on that date was 22.2197. The card network applied a rate of 1 AUD = 21.7328 THB (approximately 2.2% worse than spot). The ATM's DCC offer was 1 AUD = 20.6613 THB (approximately 7.0% worse than spot). We use these calibrated multipliers: card network = spot × 0.978, ATM DCC = spot × 0.930, based on average data of real ATM transactions in Thailand. Please note the rates can vary depending on many factors. This tool is meant to be used as a rough guide.
               </p>
               <p>
                 <strong>Live exchange rates:</strong> Mid-market spot rates are fetched daily from the Open Exchange Rates API and cached in your browser for 24 hours. If the live fetch fails, approximate rates from March 2026 are used as a fallback.
