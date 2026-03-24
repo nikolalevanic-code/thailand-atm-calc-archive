@@ -23,9 +23,12 @@ export const CARD_NETWORK_MULTIPLIER = 0.978; // card network takes ~2.2% margin
 export const ATM_DCC_MULTIPLIER = 0.930;       // DCC takes ~7.0% margin vs spot
 export const DEFAULT_THAI_ATM_FEE = 250; // THB
 
+export const DEFAULT_ATM_LIMIT_THB = 20000; // conservative default — most Thai ATMs: 20,000–30,000 THB
+
 export interface CalculatorInputs {
   withdrawalAmountTHB: number;
   thaiAtmFeeTHB: number;
+  atmLimitTHB: number; // per-transaction limit of the Thai ATM
   currency: string;
   spotRateTHBperUnit: number; // how many THB per 1 unit of home currency
   card: CardProfile | null;
@@ -53,6 +56,8 @@ export interface CalculationResult {
   isWithoutBetter: boolean;
   usingDefaultProfile: boolean;
   defaultProfileBasis?: string;
+  numTransactions: number;    // number of ATM transactions required
+  totalAtmFeeTHB: number;     // total ATM fee across all transactions
 }
 
 function getCardFees(card: CardProfile | null, currency: string): {
@@ -106,13 +111,18 @@ function calcScenario(
 }
 
 export function calculate(inputs: CalculatorInputs): CalculationResult | null {
-  const { withdrawalAmountTHB, thaiAtmFeeTHB, currency, spotRateTHBperUnit, card } = inputs;
+  const { withdrawalAmountTHB, thaiAtmFeeTHB, atmLimitTHB, currency, spotRateTHBperUnit, card } = inputs;
 
   if (!withdrawalAmountTHB || withdrawalAmountTHB <= 0 || !spotRateTHBperUnit || spotRateTHBperUnit <= 0) {
     return null;
   }
 
-  const totalTHB = withdrawalAmountTHB + thaiAtmFeeTHB;
+  // Calculate number of transactions needed based on ATM per-transaction limit
+  const effectiveLimit = atmLimitTHB > 0 ? atmLimitTHB : DEFAULT_ATM_LIMIT_THB;
+  const numTransactions = Math.ceil(withdrawalAmountTHB / effectiveLimit);
+  const totalAtmFeeTHB = thaiAtmFeeTHB * numTransactions;
+
+  const totalTHB = withdrawalAmountTHB + totalAtmFeeTHB;
 
   const cardNetworkRate = spotRateTHBperUnit * CARD_NETWORK_MULTIPLIER;
   const atmDccRate = spotRateTHBperUnit * ATM_DCC_MULTIPLIER;
@@ -159,5 +169,7 @@ export function calculate(inputs: CalculatorInputs): CalculationResult | null {
     isWithoutBetter: savingsHome > 0,
     usingDefaultProfile,
     defaultProfileBasis,
+    numTransactions,
+    totalAtmFeeTHB,
   };
 }

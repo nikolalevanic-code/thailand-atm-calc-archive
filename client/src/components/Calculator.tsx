@@ -7,7 +7,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { CardProfile, CURRENCIES, formatCurrency } from '@/lib/cardData';
-import { calculate, CalculationResult, DEFAULT_THAI_ATM_FEE } from '@/lib/calculator';
+import { calculate, CalculationResult, DEFAULT_THAI_ATM_FEE, DEFAULT_ATM_LIMIT_THB } from '@/lib/calculator';
 import { fetchThbRates, FALLBACK_RATES, isFallbackRate } from '@/lib/fxRate';
 import BankCardSelector from './BankCardSelector';
 import ResultsTable from './ResultsTable';
@@ -24,6 +24,7 @@ export default function Calculator() {
   const [currency, setCurrency] = useState<string>('AUD');
   const [selectedCard, setSelectedCard] = useState<CardProfile | null>(null);
   const [thaiAtmFee, setThaiAtmFee] = useState<string>(String(DEFAULT_THAI_ATM_FEE));
+  const [atmLimit, setAtmLimit] = useState<string>(String(DEFAULT_ATM_LIMIT_THB));
   const [showAtmFeeOverride, setShowAtmFeeOverride] = useState(false);
   const [copied, setCopied] = useState(false);
 
@@ -86,12 +87,13 @@ export default function Calculator() {
     const calc = calculate({
       withdrawalAmountTHB: parseFloat(withdrawalAmount) || 0,
       thaiAtmFeeTHB: parseFloat(thaiAtmFee) || 0,
+      atmLimitTHB: parseFloat(atmLimit) || DEFAULT_ATM_LIMIT_THB,
       currency,
       spotRateTHBperUnit: spotRate,
       card: selectedCard,
     });
     setResult(calc);
-  }, [withdrawalAmount, currency, selectedCard, thaiAtmFee, fxRates]);
+  }, [withdrawalAmount, currency, selectedCard, thaiAtmFee, atmLimit, fxRates]);
 
   const spotRate = fxRates?.[currency];
   const hasResult = result !== null;
@@ -184,22 +186,38 @@ export default function Calculator() {
             onClick={() => setShowAtmFeeOverride(o => !o)}
             className="text-xs text-brand underline underline-offset-2 hover:text-brand/80 transition-colors"
           >
-            {showAtmFeeOverride ? 'Hide' : 'Change'} Thai ATM fee (default: 250 THB)
+            {showAtmFeeOverride ? 'Hide' : 'Change'} Thai ATM settings (fee: 250 THB, limit: 20,000 THB)
           </button>
           {showAtmFeeOverride && (
-            <div className="mt-2 flex items-center gap-2">
-              <div className="relative w-36">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm font-mono">฿</span>
-                <input
-                  type="number"
-                  min="0"
-                  step="10"
-                  value={thaiAtmFee}
-                  onChange={e => setThaiAtmFee(e.target.value)}
-                  className="w-full pl-7 pr-3 py-2 rounded-md border border-border bg-white text-sm font-mono focus:outline-none focus:ring-2 focus:ring-ring/30"
-                />
+            <div className="mt-2 space-y-2">
+              <div className="flex items-center gap-2">
+                <div className="relative w-36">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm font-mono">฿</span>
+                  <input
+                    type="number"
+                    min="0"
+                    step="10"
+                    value={thaiAtmFee}
+                    onChange={e => setThaiAtmFee(e.target.value)}
+                    className="w-full pl-7 pr-3 py-2 rounded-md border border-border bg-white text-sm font-mono focus:outline-none focus:ring-2 focus:ring-ring/30"
+                  />
+                </div>
+                <span className="text-xs text-muted-foreground">per-transaction fee (most Thai ATMs: 220–250 THB; AEON: 150 THB)</span>
               </div>
-              <span className="text-xs text-muted-foreground">THB (most Thai ATMs charge 220–250 THB)</span>
+              <div className="flex items-center gap-2">
+                <div className="relative w-36">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm font-mono">฿</span>
+                  <input
+                    type="number"
+                    min="1000"
+                    step="1000"
+                    value={atmLimit}
+                    onChange={e => setAtmLimit(e.target.value)}
+                    className="w-full pl-7 pr-3 py-2 rounded-md border border-border bg-white text-sm font-mono focus:outline-none focus:ring-2 focus:ring-ring/30"
+                  />
+                </div>
+                <span className="text-xs text-muted-foreground">per-transaction limit (most Thai ATMs: 20,000–30,000 THB)</span>
+              </div>
             </div>
           )}
         </div>

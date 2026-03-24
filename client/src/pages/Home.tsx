@@ -52,7 +52,7 @@ export default function Home() {
               </p>
               <div className="inline-flex items-center gap-2 text-xs font-medium text-white/70 bg-white/10 px-3 py-1.5 rounded-full">
                 <span className="w-1.5 h-1.5 rounded-full bg-white/60" />
-                Free · 84 cards across 14 countries
+                Free · 96 cards across 16 countries
               </div>
             </div>
 
@@ -98,7 +98,7 @@ export default function Home() {
                   <h3 className="font-semibold text-foreground">With conversion (DCC)</h3>
                 </div>
                 <p className="text-sm text-foreground/80 leading-relaxed">
-                  You <strong>accept</strong> the ATM's offer. The Thai bank converts the Baht to your home currency at their own rate — which is typically 5–7% worse than the mid-market rate. The ATM operator earns a margin on this.
+                  You <strong>accept</strong> the ATM's offer. The Thai bank converts the Baht to your home currency at their own rate — which is typically ~7% worse than the mid-market rate. The ATM operator earns a margin on this.
                 </p>
                 <div className="text-xs text-worse font-medium bg-worse-surface rounded px-2 py-1">
                   Usually the more expensive option
@@ -111,7 +111,7 @@ export default function Home() {
               {[
                 { stat: '~7%', label: 'Typical DCC rate penalty vs mid-market', color: 'text-worse' },
                 { stat: '250 THB', label: 'Standard Thai ATM access fee (all major banks)', color: 'text-foreground' },
-                { stat: '84 cards', label: 'Researched across 14 tourist-origin countries', color: 'text-brand' },
+                { stat: '96 cards', label: 'Researched across 16 tourist-origin countries', color: 'text-brand' },
               ].map((item, i) => (
                 <div key={i} className="bg-white rounded-lg p-4 text-center border border-border">
                   <div className={`font-display text-2xl font-bold ${item.color}`}>{item.stat}</div>
@@ -148,9 +148,16 @@ export default function Home() {
                 {
                   name: 'Charles Schwab Investor Checking',
                   type: 'US bank account',
-                  benefit: 'No foreign transaction fees, reimburses all ATM fees worldwide',
+                  benefit: 'No foreign transaction fees, reimburses all ATM fees worldwide — including the 250 THB Thai ATM fee',
                   markets: 'USD',
                   tag: 'Best for USD travellers',
+                },
+                {
+                  name: 'Wise — Pre-convert to THB',
+                  type: 'Wise Debit Card tip',
+                  benefit: 'If you have a Wise account, convert your home currency to THB inside the Wise app before withdrawing. You get the mid-market rate with a small transparent fee, rather than the card network rate applied at the ATM.',
+                  markets: 'All Wise-supported currencies',
+                  tag: 'Wise card tip',
                 },
                 {
                   name: 'Starling Bank',
@@ -209,7 +216,7 @@ export default function Home() {
                 <strong>Live exchange rates:</strong> Mid-market spot rates are fetched daily from the Open Exchange Rates API and cached in your browser for 24 hours. If the live fetch fails, approximate rates from March 2026 are used as a fallback.
               </p>
               <p>
-                <strong>Card fee database:</strong> 84 card profiles across 14 tourist-origin countries, sourced from official bank fee schedules and product pages. Last verified March 2026. Confidence levels (high/medium) are shown for each card. We do not include low-confidence data.
+                <strong>Card fee database:</strong> 96 card profiles across 16 tourist-origin countries, sourced from official bank fee schedules and product pages. Last verified March 2026. Confidence levels (high/medium) are shown for each card. We do not include low-confidence data.
               </p>
               <p>
                 <strong>Thai ATM fees:</strong> The default Thai ATM access fee is 250 THB, which is the standard rate charged by SCB, Bangkok Bank, Kasikorn, Krungthai, and Krungsri to foreign cardholders. Some ATMs charge 220 THB. You can override this in the calculator.

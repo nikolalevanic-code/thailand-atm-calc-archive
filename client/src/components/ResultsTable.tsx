@@ -56,7 +56,7 @@ function Row({
 }
 
 export default function ResultsTable({ result, withdrawalAmountTHB, thaiAtmFeeTHB }: ResultsTableProps) {
-  const { withoutConversion: wo, withConversion: wc, currency, isWithoutBetter } = result;
+  const { withoutConversion: wo, withConversion: wc, currency, isWithoutBetter, numTransactions, totalAtmFeeTHB } = result;
   const sym = getCurrencySymbol(currency);
 
   function fmt(n: number, decimals = 2) {
@@ -102,9 +102,10 @@ export default function ResultsTable({ result, withdrawalAmountTHB, thaiAtmFeeTH
           />
           <Row
             label="Thai ATM access fee"
-            withoutVal={`${thaiAtmFeeTHB.toLocaleString()} THB`}
-            withVal={`${thaiAtmFeeTHB.toLocaleString()} THB`}
+            withoutVal={`${totalAtmFeeTHB.toLocaleString()} THB`}
+            withVal={`${totalAtmFeeTHB.toLocaleString()} THB`}
             isWithoutBetter={isWithoutBetter}
+            subtext={numTransactions > 1 ? `${numTransactions} transactions × ${thaiAtmFeeTHB} THB` : undefined}
           />
           <Row
             label="Total ATM amount"
