@@ -134,12 +134,14 @@ export function isFallbackRate(rates: Record<string, number>): boolean {
 export function formatFetchedAt(fetchedAt: number): string {
   if (!fetchedAt) return '';
   const d = new Date(fetchedAt);
-  return d.toLocaleString('en-GB', {
+  const formatted = d.toLocaleString('en-GB', {
     day: 'numeric',
     month: 'short',
     year: 'numeric',
     hour: '2-digit',
     minute: '2-digit',
     hour12: false,
+    timeZone: 'Asia/Bangkok',
   });
+  return `${formatted} (Thailand time, GMT+7)`;
 }
