@@ -42,15 +42,20 @@ function saveCache(rates: Record<string, number>): void {
   }
 }
 
+export interface FxRateResult {
+  rates: Record<string, number>;
+  fetchedAt: number; // unix ms timestamp of when rates were last fetched/cached
+}
+
 /**
  * Fetch THB-based rates for all supported currencies.
- * Returns a map: currency -> THB per 1 unit of that currency
- * e.g. { AUD: 22.1, USD: 34.5, ... }
+ * Returns rates map plus the timestamp of when the data was fetched.
+ * e.g. { rates: { AUD: 22.1, USD: 34.5, ... }, fetchedAt: 1711234567890 }
  */
-export async function fetchThbRates(): Promise<Record<string, number>> {
+export async function fetchThbRates(): Promise<FxRateResult> {
   // Check cache first
   const cached = loadCache();
-  if (cached) return cached.rates;
+  if (cached) return { rates: cached.rates, fetchedAt: cached.fetchedAt };
 
   try {
     // Primary: exchangerate-api.com (no key needed for basic endpoint)
@@ -71,7 +76,8 @@ export async function fetchThbRates(): Promise<Record<string, number>> {
     }
 
     saveCache(thbRates);
-    return thbRates;
+    const now = Date.now();
+    return { rates: thbRates, fetchedAt: now };
   } catch (primaryError) {
     console.warn('Primary FX API failed, trying fallback:', primaryError);
 
@@ -89,11 +95,12 @@ export async function fetchThbRates(): Promise<Record<string, number>> {
       }
 
       saveCache(thbRates);
-      return thbRates;
+      const now = Date.now();
+      return { rates: thbRates, fetchedAt: now };
     } catch (fallbackError) {
       console.error('Both FX APIs failed:', fallbackError);
       // Return hardcoded fallback rates (approximate, clearly labelled as stale)
-      return FALLBACK_RATES;
+      return { rates: FALLBACK_RATES, fetchedAt: 0 };
     }
   }
 }
@@ -121,4 +128,18 @@ export const FALLBACK_RATES: Record<string, number> = {
 export function isFallbackRate(rates: Record<string, number>): boolean {
   // If AUD rate matches fallback exactly, we're using fallback
   return rates['AUD'] === FALLBACK_RATES['AUD'];
+}
+
+/** Format a fetchedAt timestamp for display in the UI */
+export function formatFetchedAt(fetchedAt: number): string {
+  if (!fetchedAt) return '';
+  const d = new Date(fetchedAt);
+  return d.toLocaleString('en-GB', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  });
 }

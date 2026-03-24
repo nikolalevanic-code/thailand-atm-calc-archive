@@ -8,7 +8,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { CardProfile, CURRENCIES, formatCurrency } from '@/lib/cardData';
 import { calculate, CalculationResult, DEFAULT_THAI_ATM_FEE, DEFAULT_ATM_LIMIT_THB } from '@/lib/calculator';
-import { fetchThbRates, FALLBACK_RATES, isFallbackRate } from '@/lib/fxRate';
+import { fetchThbRates, FALLBACK_RATES, isFallbackRate, formatFetchedAt } from '@/lib/fxRate';
 import BankCardSelector from './BankCardSelector';
 import ResultsTable from './ResultsTable';
 import RecommendationBox from './RecommendationBox';
@@ -54,7 +54,7 @@ export default function Calculator() {
   const [fxLoading, setFxLoading] = useState(true);
   const [fxError, setFxError] = useState(false);
   const [usingFallback, setUsingFallback] = useState(false);
-  const [fxLastUpdated, setFxLastUpdated] = useState<string>('');
+  const [fxLastUpdated, setFxLastUpdated] = useState<string>(''); // formatted timestamp string
 
   const [result, setResult] = useState<CalculationResult | null>(null);
 
@@ -63,14 +63,15 @@ export default function Calculator() {
     setFxLoading(true);
     setFxError(false);
     try {
-      const rates = await fetchThbRates();
-      setFxRates(rates);
-      setUsingFallback(isFallbackRate(rates));
-      setFxLastUpdated(new Date().toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' }));
+      const result = await fetchThbRates();
+      setFxRates(result.rates);
+      setUsingFallback(isFallbackRate(result.rates));
+      setFxLastUpdated(result.fetchedAt ? formatFetchedAt(result.fetchedAt) : '');
     } catch {
       setFxError(true);
       setFxRates(FALLBACK_RATES);
       setUsingFallback(true);
+      setFxLastUpdated('');
     } finally {
       setFxLoading(false);
     }
@@ -109,7 +110,7 @@ export default function Calculator() {
       {/* Calculator inputs */}
       <div className="p-5 sm:p-6 space-y-5">
 
-        {/* FX rate status bar — only show errors or refresh button, not 'Live rates' line */}
+        {/* FX rate status bar — timestamp when live, error/fallback notice otherwise */}
         <div className="flex items-center justify-between text-xs text-muted-foreground">
           <div className="flex items-center gap-1.5">
             {fxLoading ? (
@@ -118,6 +119,8 @@ export default function Calculator() {
               <><AlertCircle className="w-3 h-3 text-worse" /> Using approximate rates (live fetch failed)</>
             ) : usingFallback ? (
               <><AlertCircle className="w-3 h-3 text-worse" /> Using approximate rates</>
+            ) : fxLastUpdated ? (
+              <span className="text-muted-foreground/70">Rates updated: {fxLastUpdated}</span>
             ) : null}
           </div>
           {!fxLoading && (
