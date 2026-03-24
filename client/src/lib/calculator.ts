@@ -32,6 +32,7 @@ export interface CalculatorInputs {
   currency: string;
   spotRateTHBperUnit: number; // how many THB per 1 unit of home currency
   card: CardProfile | null;
+  allRates?: Record<string, number>; // all THB rates, used to convert cross-currency fixed fees
 }
 
 export interface ScenarioResult {
@@ -129,9 +130,18 @@ export function calculate(inputs: CalculatorInputs): CalculationResult | null {
 
   const { fixedFee, fixedFeeCurrency, pctFee, fxFee } = getCardFees(card, currency);
 
-  // Convert fixed fee to home currency (it's already in home currency for most cards)
-  // If fixed fee currency differs from home currency, we'd need conversion — for V1 assume same
-  const fixedFeeHome = fixedFee;
+  // Convert fixed fee to home currency
+  // Some cards (e.g. Turkish banks) charge fixed fees in USD — convert via THB cross-rate
+  let fixedFeeHome = fixedFee;
+  if (fixedFeeCurrency !== currency && fixedFee > 0) {
+    const rates = inputs.allRates || {};
+    const feeCurrencyThb = rates[fixedFeeCurrency]; // THB per 1 unit of fee currency (e.g. USD)
+    const homeCurrencyThb = spotRateTHBperUnit;      // THB per 1 unit of home currency
+    if (feeCurrencyThb && homeCurrencyThb > 0) {
+      // Convert: fee in feeCurrency -> THB -> home currency
+      fixedFeeHome = (fixedFee * feeCurrencyThb) / homeCurrencyThb;
+    }
+  }
 
   const withoutConversion = calcScenario(
     totalTHB,

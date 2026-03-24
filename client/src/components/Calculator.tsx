@@ -91,6 +91,7 @@ export default function Calculator() {
       currency,
       spotRateTHBperUnit: spotRate,
       card: selectedCard,
+      allRates: fxRates,
     });
     setResult(calc);
   }, [withdrawalAmount, currency, selectedCard, thaiAtmFee, atmLimit, fxRates]);
@@ -101,6 +102,7 @@ export default function Calculator() {
   // Russia warning
   const showRussiaWarning = currency === 'RUB';
   const showChinaNote = currency === 'CNY';
+  const showTurkeyNote = currency === 'TRY';
 
   return (
     <div className="bg-brand-surface rounded-xl border border-border/60 shadow-sm overflow-hidden">
@@ -236,6 +238,14 @@ export default function Calculator() {
             <AlertCircle className="w-3.5 h-3.5 mt-0.5 shrink-0 text-muted-foreground" />
             <span>
               <strong>China UnionPay:</strong> UnionPay typically does not offer DCC at Thai ATMs — the "with conversion" scenario may not apply. The "without conversion" result is the most relevant.
+            </span>
+          </div>
+        )}
+        {showTurkeyNote && (
+          <div className="flex items-start gap-2 text-xs bg-muted/40 border border-border rounded-md px-3 py-2.5 text-foreground/70">
+            <AlertCircle className="w-3.5 h-3.5 mt-0.5 shrink-0 text-muted-foreground" />
+            <span>
+              <strong>Turkey (TRY):</strong> Turkish bank fees shown include the flat overseas ATM fee. Note that Turkish banks also charge BSMV tax (~5%) on banking fees, which may add a small amount to your actual cost.
             </span>
           </div>
         )}

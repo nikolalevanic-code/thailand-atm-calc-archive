@@ -1,6 +1,6 @@
 /**
  * Card Data Module
- * Loads the 96-card database and provides typed access + grouping utilities.
+ * Loads the 101-card database and provides typed access + grouping utilities.
  * Design: Calm Fintech Utility — data layer only, no UI concerns.
  */
 
@@ -42,6 +42,7 @@ export const CURRENCIES: Record<string, { label: string; symbol: string; countri
   CAD: { label: 'Canadian Dollar', symbol: 'CA$', countries: ['Canada'] },
   NZD: { label: 'New Zealand Dollar', symbol: 'NZ$', countries: ['New Zealand'] },
   GBP: { label: 'British Pound', symbol: '£', countries: ['United Kingdom'] },
+  TRY: { label: 'Turkish Lira', symbol: '₺', countries: ['Turkey'] },
   USD: { label: 'US Dollar', symbol: '$', countries: ['United States'] },
 };
 
@@ -67,6 +68,7 @@ export const DEFAULT_PROFILES: Record<string, {
   TWD: { fixed_fee: 70, fixed_fee_currency: 'TWD', pct_fee: 0.011, fx_fee: 0.015, basis: 'Cathay / Fubon average' },
   CAD: { fixed_fee: 5.00, fixed_fee_currency: 'CAD', pct_fee: 0, fx_fee: 0.025, basis: 'TD / RBC average' },
   NZD: { fixed_fee: 5.00, fixed_fee_currency: 'NZD', pct_fee: 0, fx_fee: 0.025, basis: 'ANZ NZ / Westpac NZ average' },
+  TRY: { fixed_fee: 3.00, fixed_fee_currency: 'USD', pct_fee: 0, fx_fee: 0.025, basis: 'İş Bankası / Yapı Kredi average' },
   USD: { fixed_fee: 5.00, fixed_fee_currency: 'USD', pct_fee: 0, fx_fee: 0.030, basis: 'Chase / BofA average' },
 };
 

@@ -1,14 +1,14 @@
 /**
- * FX Rate Fetcher — Daily Cache
+ * FX Rate Fetcher — Twice-Daily Cache
  * Design: Calm Fintech Utility
  *
  * Fetches THB exchange rates from exchangerate-api.com (free tier, no key needed).
- * Caches in localStorage for 24 hours to avoid hammering the API.
+ * Caches in localStorage for 12 hours to keep rates fresh twice daily.
  * Returns: THB per 1 unit of home currency (e.g. AUD: ~22.1 means 1 AUD = 22.1 THB)
  */
 
 const CACHE_KEY = 'thb_fx_rates_v1';
-const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
+const CACHE_TTL_MS = 12 * 60 * 60 * 1000; // 12 hours (twice daily)
 
 interface FxCacheEntry {
   rates: Record<string, number>; // currency -> THB per 1 unit
@@ -111,8 +111,11 @@ export const FALLBACK_RATES: Record<string, number> = {
   MYR: 7.8,
   RUB: 0.38,
   SGD: 26.5,
+  TRY: 0.95,
   TWD: 1.07,
   USD: 34.5,
+  CAD: 25.5,
+  NZD: 20.0,
 };
 
 export function isFallbackRate(rates: Record<string, number>): boolean {

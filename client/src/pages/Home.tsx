@@ -52,7 +52,7 @@ export default function Home() {
               </p>
               <div className="inline-flex items-center gap-2 text-xs font-medium text-white/70 bg-white/10 px-3 py-1.5 rounded-full">
                 <span className="w-1.5 h-1.5 rounded-full bg-white/60" />
-                Free · 96 cards across 16 countries
+                Free · 101 cards across 17 countries
               </div>
             </div>
 
@@ -111,7 +111,7 @@ export default function Home() {
               {[
                 { stat: '~7%', label: 'Typical DCC rate penalty vs mid-market', color: 'text-worse' },
                 { stat: '250 THB', label: 'Standard Thai ATM access fee (all major banks)', color: 'text-foreground' },
-                { stat: '96 cards', label: 'Researched across 16 tourist-origin countries', color: 'text-brand' },
+                { stat: '101 cards', label: 'Researched across 17 tourist-origin countries', color: 'text-brand' },
               ].map((item, i) => (
                 <div key={i} className="bg-white rounded-lg p-4 text-center border border-border">
                   <div className={`font-display text-2xl font-bold ${item.color}`}>{item.stat}</div>
@@ -213,10 +213,10 @@ export default function Home() {
                 <strong>Exchange rate calibration:</strong> We use these calibrated multipliers: card network = spot × 0.978, ATM DCC = spot × 0.930, based on average data of real ATM transactions in Thailand. Please note the rates can vary depending on many factors. This tool is meant to be used as a rough guide.
               </p>
               <p>
-                <strong>Live exchange rates:</strong> Mid-market spot rates are fetched daily from the Open Exchange Rates API and cached in your browser for 24 hours. If the live fetch fails, approximate rates from March 2026 are used as a fallback.
+                <strong>Live exchange rates:</strong> Mid-market spot rates are fetched twice daily from the Open Exchange Rates API and cached in your browser for 12 hours. If the live fetch fails, approximate rates from March 2026 are used as a fallback.
               </p>
               <p>
-                <strong>Card fee database:</strong> 96 card profiles across 16 tourist-origin countries, sourced from official bank fee schedules and product pages. Last verified March 2026. Confidence levels (high/medium) are shown for each card. We do not include low-confidence data.
+                <strong>Card fee database:</strong> 101 card profiles across 17 tourist-origin countries, sourced from official bank fee schedules and product pages. Last verified March 2026. Confidence levels (high/medium) are shown for each card. We do not include low-confidence data.
               </p>
               <p>
                 <strong>Thai ATM fees:</strong> The default Thai ATM access fee is 250 THB, which is the standard rate charged by SCB, Bangkok Bank, Kasikorn, Krungthai, and Krungsri to foreign cardholders. Some ATMs charge 220 THB. You can override this in the calculator.
