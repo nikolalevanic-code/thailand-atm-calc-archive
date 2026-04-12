@@ -219,7 +219,7 @@ export default function Home() {
                 <strong>Card fee database:</strong> 101 card profiles across 17 tourist-origin countries, sourced from official bank fee schedules and product pages. Last verified March 2026. Confidence levels (high/medium) are shown for each card. We do not include low-confidence data.
               </p>
               <p>
-                <strong>Thai ATM fees:</strong> The default Thai ATM access fee is 250 THB, which is the standard rate charged by SCB, Bangkok Bank, Kasikorn, Krungthai, and Krungsri to foreign cardholders. Some ATMs charge 220 THB. You can override this in the calculator.
+                <strong>Thai ATM fees:</strong> Most major Thai ATMs (SCB, Bangkok Bank, Kasikorn, Krungthai, Krungsri) charge 250 THB per withdrawal for Visa cards and 350 THB for Mastercard cards. The calculator defaults to the appropriate fee based on your selected card network. AEON ATMs charge a lower fee of 150 THB regardless of network. You can override the fee in the calculator settings.
               </p>
             </div>
           </div>

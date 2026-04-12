@@ -7,7 +7,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { CardProfile, CURRENCIES, formatCurrency } from '@/lib/cardData';
-import { calculate, CalculationResult, DEFAULT_THAI_ATM_FEE, DEFAULT_ATM_LIMIT_THB } from '@/lib/calculator';
+import { calculate, CalculationResult, DEFAULT_ATM_LIMIT_THB, THAI_ATM_FEE_VISA, THAI_ATM_FEE_MASTERCARD } from '@/lib/calculator';
 import { fetchThbRates, FALLBACK_RATES, isFallbackRate, formatFetchedAt } from '@/lib/fxRate';
 import BankCardSelector from './BankCardSelector';
 import ResultsTable from './ResultsTable';
@@ -19,14 +19,36 @@ const CURRENCY_OPTIONS = Object.entries(CURRENCIES).map(([code, info]) => ({
   label: `${info.symbol} ${code} — ${info.label}`,
 }));
 
+/** Derive the unambiguous network from a card's network field, or null if ambiguous */
+function resolveCardNetwork(network: string | undefined): 'Visa' | 'Mastercard' | null {
+  if (!network) return null;
+  const n = network.toLowerCase();
+  const hasVisa = n.includes('visa');
+  const hasMc = n.includes('mastercard') || n.includes('maestro') || n.includes('cirrus');
+  if (hasVisa && !hasMc) return 'Visa';
+  if (hasMc && !hasVisa) return 'Mastercard';
+  return null; // ambiguous — let user choose
+}
+
 export default function Calculator() {
   const [withdrawalAmount, setWithdrawalAmount] = useState<string>('10000');
   const [currency, setCurrency] = useState<string>('AUD');
   const [selectedCard, setSelectedCard] = useState<CardProfile | null>(null);
-  const [thaiAtmFee, setThaiAtmFee] = useState<string>(String(DEFAULT_THAI_ATM_FEE));
+
+  // Network selector: 'Visa' | 'Mastercard'
+  const [selectedNetwork, setSelectedNetwork] = useState<'Visa' | 'Mastercard'>('Visa');
+  // Whether the network was auto-set from the card (locks the selector)
+  const [networkLockedByCard, setNetworkLockedByCard] = useState(false);
+
+  // ATM fee is derived from network unless user overrides
+  const [thaiAtmFeeOverride, setThaiAtmFeeOverride] = useState<string>('');
   const [atmLimit, setAtmLimit] = useState<string>(String(DEFAULT_ATM_LIMIT_THB));
   const [showAtmFeeOverride, setShowAtmFeeOverride] = useState(false);
   const [copied, setCopied] = useState(false);
+
+  // The effective ATM fee: override if set, otherwise network-derived default
+  const networkDefaultFee = selectedNetwork === 'Mastercard' ? THAI_ATM_FEE_MASTERCARD : THAI_ATM_FEE_VISA;
+  const thaiAtmFee = thaiAtmFeeOverride !== '' ? thaiAtmFeeOverride : String(networkDefaultFee);
 
   // Read URL params on mount to support shared links
   useEffect(() => {
@@ -37,6 +59,22 @@ export default function Calculator() {
     if (cur && CURRENCIES[cur]) setCurrency(cur);
     // card param is handled after fxRates load — see card selector
   }, []);
+
+  // When selected card changes, auto-set network if unambiguous
+  useEffect(() => {
+    if (!selectedCard) {
+      setNetworkLockedByCard(false);
+      // Don't reset network — keep user's last choice
+      return;
+    }
+    const resolved = resolveCardNetwork(selectedCard.network);
+    if (resolved) {
+      setSelectedNetwork(resolved);
+      setNetworkLockedByCard(true);
+    } else {
+      setNetworkLockedByCard(false);
+    }
+  }, [selectedCard]);
 
   const handleShare = useCallback(() => {
     const params = new URLSearchParams();
@@ -100,7 +138,7 @@ export default function Calculator() {
   const spotRate = fxRates?.[currency];
   const hasResult = result !== null;
 
-  // Russia warning
+  // Country-specific warnings
   const showRussiaWarning = currency === 'RUB';
   const showChinaNote = currency === 'CNY';
   const showTurkeyNote = currency === 'TRY';
@@ -184,6 +222,42 @@ export default function Calculator() {
           onRequestBank={() => {}}
         />
 
+        {/* Row 3: Card network selector */}
+        <div className="space-y-1">
+          <label className="block text-sm font-medium text-foreground/80">
+            Card network
+          </label>
+          <div className="flex gap-2">
+            {(['Visa', 'Mastercard'] as const).map(network => (
+              <button
+                key={network}
+                type="button"
+                disabled={networkLockedByCard}
+                onClick={() => {
+                  setSelectedNetwork(network);
+                  // Clear any manual ATM fee override so the new network default takes effect
+                  setThaiAtmFeeOverride('');
+                }}
+                className={[
+                  'flex-1 py-2 px-3 rounded-md border text-sm font-medium transition-colors',
+                  selectedNetwork === network
+                    ? 'bg-brand text-white border-brand'
+                    : 'bg-white text-foreground/70 border-border hover:border-brand/40',
+                  networkLockedByCard ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer',
+                ].join(' ')}
+              >
+                {network}
+              </button>
+            ))}
+          </div>
+          <p className="text-xs text-muted-foreground">
+            {networkLockedByCard
+              ? `Auto-set from your selected card (${selectedNetwork}). Most Thai ATMs charge ${selectedNetwork === 'Mastercard' ? '350' : '250'} THB per withdrawal.`
+              : `Most Thai ATMs charge 250 THB (Visa) or 350 THB (Mastercard) per withdrawal.`
+            }
+          </p>
+        </div>
+
         {/* ATM fee override */}
         <div>
           <button
@@ -191,7 +265,7 @@ export default function Calculator() {
             onClick={() => setShowAtmFeeOverride(o => !o)}
             className="text-xs text-brand underline underline-offset-2 hover:text-brand/80 transition-colors"
           >
-            {showAtmFeeOverride ? 'Hide' : 'Change'} Thai ATM settings (fee: 250 THB, limit: 20,000 THB)
+            {showAtmFeeOverride ? 'Hide' : 'Change'} Thai ATM settings (fee: {networkDefaultFee} THB, limit: 20,000 THB)
           </button>
           {showAtmFeeOverride && (
             <div className="mt-2 space-y-2">
@@ -202,12 +276,12 @@ export default function Calculator() {
                     type="number"
                     min="0"
                     step="10"
-                    value={thaiAtmFee}
-                    onChange={e => setThaiAtmFee(e.target.value)}
+                    value={thaiAtmFeeOverride !== '' ? thaiAtmFeeOverride : networkDefaultFee}
+                    onChange={e => setThaiAtmFeeOverride(e.target.value)}
                     className="w-full pl-7 pr-3 py-2 rounded-md border border-border bg-white text-sm font-mono focus:outline-none focus:ring-2 focus:ring-ring/30"
                   />
                 </div>
-                <span className="text-xs text-muted-foreground">per-transaction fee (most Thai ATMs: 220–250 THB; AEON: 150 THB)</span>
+                <span className="text-xs text-muted-foreground">per-transaction fee (AEON ATMs: 150 THB)</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="relative w-36">

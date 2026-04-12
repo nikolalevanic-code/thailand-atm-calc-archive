@@ -21,7 +21,9 @@ import { CardProfile, DEFAULT_PROFILES } from './cardData';
 
 export const CARD_NETWORK_MULTIPLIER = 0.978; // card network takes ~2.2% margin vs spot
 export const ATM_DCC_MULTIPLIER = 0.930;       // DCC takes ~7.0% margin vs spot
-export const DEFAULT_THAI_ATM_FEE = 250; // THB
+export const DEFAULT_THAI_ATM_FEE = 250; // THB — kept for backwards compat, Visa default
+export const THAI_ATM_FEE_VISA = 250;        // THB — standard Visa fee at major Thai banks
+export const THAI_ATM_FEE_MASTERCARD = 350;  // THB — standard Mastercard fee at major Thai banks
 
 export const DEFAULT_ATM_LIMIT_THB = 20000; // conservative default — most Thai ATMs: 20,000–30,000 THB
 
