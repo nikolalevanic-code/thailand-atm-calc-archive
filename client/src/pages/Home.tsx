@@ -53,7 +53,7 @@ export default function Home() {
               </p>
               <div className="inline-flex items-center gap-2 text-xs font-medium text-white/70 bg-white/10 px-3 py-1.5 rounded-full">
                 <span className="w-1.5 h-1.5 rounded-full bg-white/60" />
-                Free · 101 cards across 17 countries
+                Free · 102 cards across 17 countries
               </div>
             </div>
 
@@ -183,7 +183,7 @@ export default function Home() {
               {[
                 { stat: '~7%', label: 'Typical DCC rate penalty vs mid-market', color: 'text-worse' },
                 { stat: '250 THB', label: 'Standard Thai ATM access fee (all major banks)', color: 'text-foreground' },
-                { stat: '101 cards', label: 'Researched across 17 tourist-origin countries', color: 'text-brand' },
+                { stat: '102 cards', label: 'Researched across 17 tourist-origin countries', color: 'text-brand' },
               ].map((item, i) => (
                 <div key={i} className="bg-white rounded-lg p-4 text-center border border-border">
                   <div className={`font-display text-2xl font-bold ${item.color}`}>{item.stat}</div>
@@ -288,7 +288,7 @@ export default function Home() {
                 <strong>Live exchange rates:</strong> Mid-market spot rates are fetched twice daily from the Open Exchange Rates API and cached in your browser for 12 hours. If the live fetch fails, approximate rates from March 2026 are used as a fallback.
               </p>
               <p>
-                <strong>Card fee database:</strong> 101 card profiles across 17 tourist-origin countries, sourced from official bank fee schedules and product pages. Last verified March 2026. Confidence levels (high/medium) are shown for each card. We do not include low-confidence data.
+                <strong>Card fee database:</strong> 102 card profiles across 17 tourist-origin countries, sourced from official bank fee schedules and product pages. Last verified March 2026. Confidence levels (high/medium) are shown for each card. We do not include low-confidence data.
               </p>
               <p>
                 <strong>Thai ATM fees:</strong> Most major Thai ATMs (SCB, Bangkok Bank, Kasikorn, Krungthai, Krungsri) charge 250 THB per withdrawal for Visa cards and 350 THB for Mastercard cards. The calculator defaults to the appropriate fee based on your selected card network. AEON ATMs charge a lower fee of 150 THB regardless of network. You can override the fee in the calculator settings.

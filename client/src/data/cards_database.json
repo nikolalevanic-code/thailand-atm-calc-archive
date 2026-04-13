@@ -160,6 +160,26 @@
     "active": true
   },
   {
+    "id": "australi_ubank_ubank_visa_debit_009",
+    "country": "Australia",
+    "bank_name": "Ubank",
+    "product_name": "Ubank Visa Debit (Spend)",
+    "network": "Visa",
+    "home_currency": "AUD",
+    "fixed_foreign_atm_fee": null,
+    "fixed_foreign_atm_fee_currency": "AUD",
+    "percentage_foreign_atm_fee": null,
+    "foreign_transaction_fee_pct": null,
+    "extra_fx_markup_pct": 0.004,
+    "notes": "No Ubank ATM or foreign transaction fees. Uses Visa network exchange rate (~0.4% above mid-market). Thai ATM flat fee still applies. Daily ATM limit A$2,000.",
+    "source_url": "https://www.ubank.com.au/banking/transaction-account",
+    "source_label": "Ubank official",
+    "last_verified_date": "2026-04",
+    "confidence_level": "high",
+    "card_type": "digital_bank",
+    "active": true
+  },
+  {
     "id": "united_k_barclays_standard_debit_card_009",
     "country": "United Kingdom",
     "bank_name": "Barclays",

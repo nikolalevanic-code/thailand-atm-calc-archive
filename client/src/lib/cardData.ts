@@ -1,6 +1,6 @@
 /**
  * Card Data Module
- * Loads the 101-card database and provides typed access + grouping utilities.
+ * Loads the 102-card database and provides typed access + grouping utilities.
  * Design: Calm Fintech Utility — data layer only, no UI concerns.
  */
 
