@@ -11,9 +11,12 @@ export default function BestAtmThailand() {
       title="Best ATM to Use in Thailand for Foreigners (2026)"
       description="Not all Thai ATMs charge the same fee. Here's which ATMs are cheapest for foreign cards — and where to find them."
       lastUpdated="April 2026"
+      ctaHeading="See the total cost with your specific card"
+      ctaBody="The ATM flat fee is just one part of the picture. Enter your card and withdrawal amount to see the full cost — including your home bank's charges."
+      ctaLabel="Calculate my total cost →"
     >
       <p>
-        Most tourists assume all ATMs in Thailand charge the same fees. They don't. While the majority of Thai banks charge 250–350 THB per foreign card withdrawal, one bank charges significantly less — and knowing where to find its ATMs can save you a meaningful amount over the course of a trip.
+        Most tourists assume all ATMs in Thailand charge the same fees. They don't. For a full breakdown of all fee types, see <a href="/blog/thailand-atm-fees">Thailand ATM fees explained</a>. To see which travel cards eliminate home-bank charges entirely, see <a href="/blog/thailand-atm-no-fee">how to withdraw money in Thailand without fees</a>. While the majority of Thai banks charge 250–350 THB per foreign card withdrawal, one bank charges significantly less — and knowing where to find its ATMs can save you a meaningful amount over the course of a trip.
       </p>
 
       <h2>The cheapest ATM in Thailand: AEON Bank</h2>
@@ -118,7 +121,7 @@ export default function BestAtmThailand() {
         <strong>AEON Bank ATMs are the cheapest option for foreign cards in Thailand</strong>, charging 150 THB per withdrawal regardless of card network. All other major Thai banks charge 250 THB (Visa) or 350 THB (Mastercard). Find AEON ATMs inside Big C and Lotus's supermarkets. For maximum savings, combine an AEON ATM with a fee-free travel card and always decline DCC.
       </p>
       <p>
-        Use our <a href="/">free calculator</a> to see the exact cost difference between ATMs and cards for your specific withdrawal amount.
+        Use our <a href="/">free calculator</a> to see the exact cost difference between ATMs and cards for your specific withdrawal amount. For a direct comparison of Wise and Revolut, see <a href="/blog/wise-revolut-thailand">Wise vs Revolut for Thailand</a>.
       </p>
     </BlogLayout>
   );

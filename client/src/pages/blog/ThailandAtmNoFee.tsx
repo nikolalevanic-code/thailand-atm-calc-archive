@@ -11,9 +11,12 @@ export default function ThailandAtmNoFee() {
       title="How to Withdraw Money in Thailand Without Fees"
       description="Can you avoid ATM fees in Thailand entirely? Here's what's actually possible — and the best strategies to get as close to zero as you can."
       lastUpdated="April 2026"
+      ctaHeading="Compare your card against the fee-free alternatives"
+      ctaBody="See exactly how much you'd save by switching to Wise, Revolut, or Schwab — for your specific withdrawal amount and home currency."
+      ctaLabel="Compare cards now →"
     >
       <p>
-        The honest answer is: you cannot completely avoid ATM fees in Thailand. The Thai bank that owns the ATM will always charge a flat fee on foreign card withdrawals — currently 250 THB for Visa cards and 350 THB for Mastercard. That fee goes to the Thai bank and there is no way around it with a standard debit or credit card.
+        The honest answer is: you cannot completely avoid ATM fees in Thailand. For a full breakdown of what each fee is and who charges it, see <a href="/blog/thailand-atm-fees">Thailand ATM fees explained</a>. For a direct comparison of the two most popular travel cards, see <a href="/blog/wise-revolut-thailand">Wise vs Revolut for Thailand</a>. The Thai bank that owns the ATM will always charge a flat fee on foreign card withdrawals — currently 250 THB for Visa cards and 350 THB for Mastercard. That fee goes to the Thai bank and there is no way around it with a standard debit or credit card.
       </p>
       <p>
         What you <em>can</em> eliminate are the fees charged by your home bank — the foreign transaction percentage, the international ATM fee, and the exchange rate markup. With the right card, those charges drop to zero, leaving you paying only the unavoidable Thai ATM flat fee.
@@ -115,7 +118,7 @@ export default function ThailandAtmNoFee() {
         Following all four steps, a ฿20,000 withdrawal with a Wise card at an AEON ATM costs approximately 150 THB (~$4) in total fees — compared to $25–35 with a standard bank card at a major Thai bank ATM.
       </p>
       <p>
-        Use our <a href="/">free calculator</a> to compare your specific card against the alternatives and see the exact cost difference.
+        Use our <a href="/">free calculator</a> to compare your specific card against the alternatives and see the exact cost difference. You can also read about <a href="/blog/how-much-cash-thailand">how much cash to bring to Thailand</a> to plan your total withdrawal strategy.
       </p>
     </BlogLayout>
   );

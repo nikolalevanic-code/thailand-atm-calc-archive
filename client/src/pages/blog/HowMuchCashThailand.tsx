@@ -11,9 +11,12 @@ export default function HowMuchCashThailand() {
       title="How Much Cash to Bring to Thailand (2026 Guide)"
       description="How much Thai Baht do you actually need? A practical breakdown by trip length, travel style, and where cards are and aren't accepted."
       lastUpdated="April 2026"
+      ctaHeading="See what your planned withdrawals will cost"
+      ctaBody="Once you know how much cash you need, use the calculator to find the cheapest way to get it — based on your specific card and home currency."
+      ctaLabel="Plan my withdrawals →"
     >
       <p>
-        Thailand is increasingly card-friendly, but cash remains essential in many situations — especially outside Bangkok. Knowing roughly how much you'll need helps you plan your ATM withdrawals efficiently and avoid paying unnecessary fees on small, frequent withdrawals.
+        Thailand is increasingly card-friendly, but cash remains essential in many situations — especially outside Bangkok. Knowing roughly how much you'll need helps you plan your ATM withdrawals efficiently and avoid paying unnecessary fees on small, frequent withdrawals. For guidance on minimising ATM fees when you withdraw, see <a href="/blog/thailand-atm-fees">Thailand ATM fees explained</a> and <a href="/blog/thailand-atm-no-fee">how to withdraw money in Thailand without fees</a>.
       </p>
 
       <h2>Where you need cash in Thailand</h2>
@@ -144,7 +147,7 @@ export default function HowMuchCashThailand() {
         Most travellers to Thailand need between <strong>500–2,000 THB per day</strong> in cash, depending on travel style and destination. Withdraw from ATMs in Thailand rather than exchanging at home, use a fee-free card to eliminate home-bank charges, and withdraw larger amounts less frequently to minimise flat fees.
       </p>
       <p>
-        Use our <a href="/">free calculator</a> to see exactly what your planned withdrawals will cost with your specific card.
+        Use our <a href="/">free calculator</a> to see exactly what your planned withdrawals will cost with your specific card. For ATM withdrawal limits by Thai bank, see <a href="/blog/thailand-atm-withdrawal-limit">Thailand ATM withdrawal limits</a>.
       </p>
     </BlogLayout>
   );

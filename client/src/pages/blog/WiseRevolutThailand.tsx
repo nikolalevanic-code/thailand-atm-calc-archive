@@ -11,9 +11,12 @@ export default function WiseRevolutThailand() {
       title="Wise vs Revolut for Thailand: Which is Better in 2026?"
       description="Both cards are popular with Thailand travellers. Here's a direct comparison of fees, exchange rates, ATM limits, and practical usability in Thailand."
       lastUpdated="April 2026"
+      ctaHeading="Compare Wise vs Revolut for your specific withdrawal"
+      ctaBody="Enter your home currency and withdrawal amount to see exactly what each card would cost you at a Thai ATM — side by side."
+      ctaLabel="Compare Wise vs Revolut →"
     >
       <p>
-        Wise and Revolut are the two most commonly recommended travel cards for Thailand, and for good reason — both eliminate the foreign transaction fees and international ATM charges that make standard bank cards so expensive abroad. But they work differently, and the better choice depends on how you travel and how much cash you typically withdraw.
+        Wise and Revolut are the two most commonly recommended travel cards for Thailand — and for good reason. Both eliminate the foreign transaction fees and international ATM charges that make standard bank cards so expensive abroad. But they work differently, and the better choice depends on how you travel and how much cash you typically withdraw. For a full picture of all ATM fees involved, see <a href="/blog/thailand-atm-fees">Thailand ATM fees explained</a>. To find the cheapest ATM machines in Thailand, see <a href="/blog/best-atm-thailand-foreigners">best ATM to use in Thailand for foreigners</a>.
       </p>
 
       <h2>Quick comparison</h2>
@@ -130,7 +133,7 @@ export default function WiseRevolutThailand() {
         Both Wise and Revolut still require you to pay the Thai bank's flat ATM fee (250 THB for Visa, 350 THB for Mastercard). Neither card reimburses this fee. To minimise it, use AEON ATMs (150 THB) where available, and always withdraw the maximum amount per transaction. See our guide on <a href="/blog/best-atm-thailand-foreigners">the best ATMs to use in Thailand</a> for more detail.
       </p>
       <p>
-        Use our <a href="/">free calculator</a> to compare Wise and Revolut side-by-side for your specific withdrawal amount and home currency.
+        Use our <a href="/">free calculator</a> to compare Wise and Revolut side-by-side for your specific withdrawal amount and home currency. You can also read <a href="/blog/how-much-cash-thailand">how much cash to bring to Thailand</a> to plan your total withdrawal budget.
       </p>
     </BlogLayout>
   );

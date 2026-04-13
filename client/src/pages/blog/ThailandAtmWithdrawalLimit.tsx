@@ -11,9 +11,12 @@ export default function ThailandAtmWithdrawalLimit() {
       title="Thailand ATM Withdrawal Limits (2026)"
       description="How much can you withdraw from a Thai ATM in one transaction? Per day? Here are the limits by bank — and how to work around them efficiently."
       lastUpdated="April 2026"
+      ctaHeading="See how fees stack up across multiple transactions"
+      ctaBody="If you need more than 20,000 THB, the calculator shows the total cost across multiple withdrawals — so you can plan the most efficient strategy."
+      ctaLabel="Calculate multi-transaction cost →"
     >
       <p>
-        Thailand has some of the most restrictive ATM withdrawal limits in Southeast Asia. Most machines cap each transaction at 20,000 THB, and some banks impose additional daily limits on foreign cards. If you need a larger amount of cash — for a hotel deposit, a motorbike rental, or a longer stay — understanding these limits in advance will save you time and unnecessary fees.
+        Thailand has some of the most restrictive ATM withdrawal limits in Southeast Asia. For a full breakdown of the fees charged per transaction, see <a href="/blog/thailand-atm-fees">Thailand ATM fees explained</a>. To minimise the cost of multiple withdrawals, see <a href="/blog/thailand-atm-no-fee">how to withdraw money in Thailand without fees</a>. Most machines cap each transaction at 20,000 THB, and some banks impose additional daily limits on foreign cards. If you need a larger amount of cash — for a hotel deposit, a motorbike rental, or a longer stay — understanding these limits in advance will save you time and unnecessary fees.
       </p>
 
       <h2>Per-transaction limits by Thai bank</h2>
@@ -145,7 +148,7 @@ export default function ThailandAtmWithdrawalLimit() {
         Most Thai ATMs limit foreign card withdrawals to <strong>20,000 THB per transaction</strong>. Your home bank may impose an additional daily limit. To minimise fees, always withdraw the maximum amount per transaction, use a Visa card over Mastercard, and consider AEON ATMs for their lower 150 THB flat fee.
       </p>
       <p>
-        Use our <a href="/">free calculator</a> to see the total cost of your planned withdrawals, including multi-transaction scenarios.
+        Use our <a href="/">free calculator</a> to see the total cost of your planned withdrawals, including multi-transaction scenarios. You can also compare the cheapest ATMs in Thailand in our guide to the <a href="/blog/best-atm-thailand-foreigners">best ATM to use in Thailand for foreigners</a>.
       </p>
     </BlogLayout>
   );

@@ -11,9 +11,20 @@ interface BlogLayoutProps {
   description: string;
   lastUpdated: string;
   children: React.ReactNode;
+  ctaHeading?: string;
+  ctaBody?: string;
+  ctaLabel?: string;
 }
 
-export default function BlogLayout({ title, description, lastUpdated, children }: BlogLayoutProps) {
+export default function BlogLayout({
+  title,
+  description,
+  lastUpdated,
+  children,
+  ctaHeading = 'Calculate your exact ATM cost',
+  ctaBody = 'Enter your withdrawal amount and home currency to see the true cost — including your bank\'s fees and the exchange rate spread.',
+  ctaLabel = 'Use the free calculator →',
+}: BlogLayoutProps) {
   return (
     <div className="min-h-screen bg-background">
 
@@ -51,7 +62,7 @@ export default function BlogLayout({ title, description, lastUpdated, children }
             <h1 className="font-display text-2xl sm:text-3xl lg:text-4xl text-white font-extrabold mt-3 leading-tight">
               {title}
             </h1>
-            <p className="text-white/75 mt-3 text-base leading-relaxed max-w-xl">
+            <p className="text-white/75 mt-3 text-base leading-relaxed max-xl">
               {description}
             </p>
             <p className="text-white/45 text-xs mt-4">Updated {lastUpdated}</p>
@@ -66,19 +77,19 @@ export default function BlogLayout({ title, description, lastUpdated, children }
             {children}
           </div>
 
-          {/* ── CTA ── */}
+          {/* ── Context-aware CTA ── */}
           <div className="mt-12 rounded-xl bg-brand-purple-surface border border-brand-purple/20 p-6 sm:p-8">
             <h3 className="font-display text-lg font-bold text-foreground mb-2">
-              Calculate your exact ATM cost
+              {ctaHeading}
             </h3>
             <p className="text-muted-foreground text-sm mb-4">
-              Enter your withdrawal amount and home currency to see the true cost — including your bank's fees and the exchange rate spread.
+              {ctaBody}
             </p>
             <a
               href="/"
               className="inline-flex items-center gap-2 bg-brand text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:opacity-90 transition-opacity no-underline"
             >
-              Use the free calculator →
+              {ctaLabel}
             </a>
           </div>
 

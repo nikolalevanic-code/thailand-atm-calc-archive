@@ -11,9 +11,12 @@ export default function ThailandAtmFees() {
       title="Thailand ATM Fees Explained (2026)"
       description="A clear breakdown of every fee you'll encounter at a Thai ATM — and how to avoid the ones that aren't worth paying."
       lastUpdated="April 2026"
+      ctaHeading="Calculate the exact cost of your withdrawal"
+      ctaBody="See every fee layer broken down — Thai ATM flat fee, your bank's charges, and the exchange rate spread — for your specific card and amount."
+      ctaLabel="Calculate my withdrawal cost →"
     >
       <p>
-        Withdrawing cash from an ATM in Thailand costs more than most tourists expect. The headline fee — the one Thai banks display prominently — is just one part of the picture. By the time your bank processes the transaction, you may have paid two or three separate charges on top of the exchange rate spread. This guide breaks down exactly what those fees are, who charges them, and which ones you can avoid.
+        Withdrawing cash from an ATM in Thailand costs more than most tourists expect. This guide covers every fee layer involved. For the best cards to use, see our guide on <a href="/blog/thailand-atm-no-fee">how to withdraw money in Thailand without fees</a>. For per-bank withdrawal caps, see <a href="/blog/thailand-atm-withdrawal-limit">Thailand ATM withdrawal limits</a>. The headline fee — the one Thai banks display prominently — is just one part of the picture. By the time your bank processes the transaction, you may have paid two or three separate charges on top of the exchange rate spread. This guide breaks down exactly what those fees are, who charges them, and which ones you can avoid.
       </p>
 
       <h2>The two types of ATM fees in Thailand</h2>
@@ -118,7 +121,7 @@ export default function ThailandAtmFees() {
 
       <h2>ATM withdrawal limits in Thailand</h2>
       <p>
-        Most Thai ATMs cap withdrawals at <strong>20,000 THB per transaction</strong>, with some machines allowing up to 30,000 THB. If you need to withdraw more, you will need to make multiple transactions — each incurring the flat ATM fee. See our guide to <a href="/blog/thailand-atm-withdrawal-limit">Thailand ATM withdrawal limits</a> for a full breakdown by bank.
+        Most Thai ATMs cap withdrawals at <strong>20,000 THB per transaction</strong>, with some machines allowing up to 30,000 THB. If you need to withdraw more, you will need to make multiple transactions — each incurring the flat ATM fee. See our guide to <a href="/blog/thailand-atm-withdrawal-limit">Thailand ATM withdrawal limits</a> for a full breakdown by bank. To find the cheapest ATM in Thailand, see <a href="/blog/best-atm-thailand-foreigners">best ATM to use in Thailand for foreigners</a>.
       </p>
 
       <h2>Summary</h2>

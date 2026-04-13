@@ -66,6 +66,77 @@ export default function Home() {
       {/* ── Tips ── */}
       <TipsSection />
 
+      {/* ── Guides ── */}
+      <section id="guides" className="py-12 sm:py-16 border-t border-border">
+        <div className="container">
+          <div className="max-w-3xl mx-auto">
+            <div className="flex items-end justify-between mb-6">
+              <div>
+                <h2 className="font-display text-2xl sm:text-3xl text-foreground font-bold">
+                  Thailand ATM guides
+                </h2>
+                <p className="text-muted-foreground mt-1 text-sm">
+                  Practical answers to the most common questions about ATMs and cash in Thailand.
+                </p>
+              </div>
+              <a href="/blog" className="text-sm text-brand font-medium hover:opacity-80 transition-opacity hidden sm:block whitespace-nowrap">
+                See all guides →
+              </a>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {[
+                {
+                  href: '/blog/thailand-atm-fees',
+                  title: 'Thailand ATM fees explained',
+                  desc: 'Every fee you\'ll encounter — and which ones you can avoid.',
+                },
+                {
+                  href: '/blog/thailand-atm-no-fee',
+                  title: 'How to withdraw without fees',
+                  desc: 'The best cards and strategies to minimise what you pay.',
+                },
+                {
+                  href: '/blog/best-atm-thailand-foreigners',
+                  title: 'Best ATM to use in Thailand',
+                  desc: 'AEON charges 150 THB. Most others charge 250–350 THB.',
+                },
+                {
+                  href: '/blog/wise-revolut-thailand',
+                  title: 'Wise vs Revolut for Thailand',
+                  desc: 'A direct comparison of fees, rates, and ATM limits.',
+                },
+                {
+                  href: '/blog/thailand-atm-withdrawal-limit',
+                  title: 'ATM withdrawal limits',
+                  desc: 'Per-transaction and daily limits by Thai bank.',
+                },
+                {
+                  href: '/blog/how-much-cash-thailand',
+                  title: 'How much cash to bring',
+                  desc: 'Daily budgets by travel style and trip length.',
+                },
+              ].map((guide) => (
+                <a
+                  key={guide.href}
+                  href={guide.href}
+                  className="group block border border-border rounded-lg p-4 hover:border-brand-purple/40 hover:bg-brand-purple-surface/40 transition-all duration-150 no-underline"
+                >
+                  <div className="font-display text-sm font-semibold text-foreground group-hover:text-brand-purple transition-colors mb-1">
+                    {guide.title}
+                  </div>
+                  <div className="text-xs text-muted-foreground leading-relaxed">
+                    {guide.desc}
+                  </div>
+                </a>
+              ))}
+            </div>
+            <a href="/blog" className="mt-4 inline-block text-sm text-brand font-medium hover:opacity-80 transition-opacity sm:hidden">
+              See all guides →
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ── How it works ── */}
       <section id="how-it-works" className="bg-muted/30 border-y border-border py-12 sm:py-16">
         <div className="container">
@@ -245,6 +316,7 @@ export default function Home() {
               <div className="space-y-1 text-xs">
                 <div className="text-background/50 font-medium uppercase tracking-wide text-[10px] mb-2">Links</div>
                 {[
+                  { label: 'Guides', href: '/blog' },
                   { label: 'Methodology', href: '#methodology' },
                   { label: 'FAQ', href: '#faq' },
                   { label: 'ATM conversion?', href: '#how-it-works' },
