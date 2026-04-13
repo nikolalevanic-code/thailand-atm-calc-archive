@@ -31,6 +31,7 @@ export default function Home() {
             <a href="#tips" className="hover:text-white transition-colors hidden sm:block">Tips</a>
             <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
             <a href="#methodology" className="hover:text-white transition-colors hidden sm:block">Methodology</a>
+            <a href="/blog" className="hover:text-white transition-colors hidden sm:block">Guides</a>
           </div>
         </div>
       </nav>
