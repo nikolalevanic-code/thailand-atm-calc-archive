@@ -1,5 +1,5 @@
 /*
- * Article: Best ATM to Use in Thailand for Foreigners (2026)
+ * Article: Best ATMs in Thailand for Foreigners (2026): Avoid the 250–350 THB Fee
  * Targets: "best atm to use in thailand for foreigners", "aeon atm thailand"
  */
 
@@ -8,9 +8,10 @@ import BlogLayout from '@/components/BlogLayout';
 export default function BestAtmThailand() {
   return (
     <BlogLayout
-      title="Best ATM to Use in Thailand for Foreigners (2026)"
-      description="Not all Thai ATMs charge the same fee. Here's which ATMs are cheapest for foreign cards — and where to find them."
-      lastUpdated="April 2026"
+      title="Best ATMs in Thailand for Foreigners (2026): Avoid the 250–350 THB Fee"
+      description="AEON ATMs charge 150 THB vs 250–350 THB at major banks. Here’s which ATMs cost least for foreign cards in Thailand 2026 — and where to find them."
+      lastUpdated="May 2026"
+      slug="best-atm-thailand-foreigners"
       ctaHeading="See the total cost with your specific card"
       ctaBody="The ATM flat fee is just one part of the picture. Enter your card and withdrawal amount to see the full cost — including your home bank's charges."
       ctaLabel="Calculate my total cost →"

@@ -1,0 +1,28 @@
+# Thailand ATM Fees Calculator
+
+> A free tool to calculate the true cost of ATM withdrawals in Thailand. Covers 102 cards across 17 countries. Compare exchange rates, bank fees, and avoid hidden DCC conversion charges.
+
+## About this tool
+
+Thailand ATM Calculator helps tourists and travellers understand the full cost of withdrawing cash from ATMs in Thailand. It compares two scenarios: accepting the ATM's dynamic currency conversion (DCC) offer versus declining it and letting the card network convert. It accounts for the user's specific bank and card fees, supports multi-transaction calculations, and uses live exchange rates updated every 12 hours.
+
+Key facts:
+- Thai ATMs charge 250 THB (Visa) or 350 THB (Mastercard) per foreign card withdrawal as of 2026
+- AEON Bank ATMs charge a lower fee of 150 THB per withdrawal
+- Dynamic currency conversion (DCC) typically adds 3–7% to the cost of a withdrawal
+- The calculator covers 102 cards across 17 countries including Australia, UK, USA, Germany, France, Japan, Singapore, India, Turkey, and more
+
+## Pages
+
+- Homepage / Calculator: https://www.thailand-atm-calculator.com
+- Blog index: https://www.thailand-atm-calculator.com/blog
+- Thailand ATM Fees (2026): https://www.thailand-atm-calculator.com/blog/thailand-atm-fees
+- Thailand ATM Withdrawal Limits (2026): https://www.thailand-atm-calculator.com/blog/thailand-atm-withdrawal-limit
+- How to Withdraw Without Fees (2026): https://www.thailand-atm-calculator.com/blog/thailand-atm-no-fee
+- Best ATMs in Thailand for Foreigners (2026): https://www.thailand-atm-calculator.com/blog/best-atm-thailand-foreigners
+- Wise vs Revolut for Thailand (2026): https://www.thailand-atm-calculator.com/blog/wise-revolut-thailand
+- How Much Cash to Bring to Thailand (2026): https://www.thailand-atm-calculator.com/blog/how-much-cash-thailand
+
+## Data sources and methodology
+
+Exchange rates are fetched from Open Exchange Rates API and cached for 12 hours. Card fee data is researched from official bank and card issuer documentation and updated regularly. The tool is free, has no ads, and requires no sign-up.

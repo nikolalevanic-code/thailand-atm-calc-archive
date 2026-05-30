@@ -5,6 +5,12 @@
  */
 
 import { Link } from 'wouter';
+import { useEffect } from 'react';
+
+interface FaqItem {
+  question: string;
+  answer: string;
+}
 
 interface BlogLayoutProps {
   title: string;
@@ -14,6 +20,8 @@ interface BlogLayoutProps {
   ctaHeading?: string;
   ctaBody?: string;
   ctaLabel?: string;
+  slug: string;
+  faqItems?: FaqItem[];
 }
 
 export default function BlogLayout({
@@ -24,7 +32,76 @@ export default function BlogLayout({
   ctaHeading = 'Calculate your exact ATM cost',
   ctaBody = 'Enter your withdrawal amount and home currency to see the true cost — including your bank\'s fees and the exchange rate spread.',
   ctaLabel = 'Use the free calculator →',
+  slug,
+  faqItems,
 }: BlogLayoutProps) {
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description: description,
+    url: `https://www.thailand-atm-calculator.com/blog/${slug}`,
+    dateModified: '2026-05-30',
+    publisher: {
+      '@type': 'Organization',
+      name: 'Thailand ATM Calculator',
+      url: 'https://www.thailand-atm-calculator.com',
+    },
+    inLanguage: 'en',
+  };
+
+  const faqSchema = faqItems && faqItems.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map(item => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  } : null;
+
+  useEffect(() => {
+    const prev = document.title;
+    document.title = `${title} | Thailand ATM Calculator`;
+    // Update or create meta description
+    let meta = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.name = 'description';
+      document.head.appendChild(meta);
+    }
+    const prevDesc = meta.content;
+    meta.content = description;
+
+    // Inject Article JSON-LD
+    const articleScript = document.createElement('script');
+    articleScript.type = 'application/ld+json';
+    articleScript.id = `ld-article-${slug}`;
+    articleScript.textContent = JSON.stringify(articleSchema);
+    document.head.appendChild(articleScript);
+
+    // Inject FAQ JSON-LD if present
+    let faqScript: HTMLScriptElement | null = null;
+    if (faqSchema) {
+      faqScript = document.createElement('script');
+      faqScript.type = 'application/ld+json';
+      faqScript.id = `ld-faq-${slug}`;
+      faqScript.textContent = JSON.stringify(faqSchema);
+      document.head.appendChild(faqScript);
+    }
+
+    return () => {
+      document.title = prev;
+      if (meta) meta.content = prevDesc;
+      articleScript.remove();
+      if (faqScript) faqScript.remove();
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [slug]);
+
   return (
     <div className="min-h-screen bg-background">
 

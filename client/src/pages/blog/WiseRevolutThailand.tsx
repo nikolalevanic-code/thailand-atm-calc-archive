@@ -8,9 +8,10 @@ import BlogLayout from '@/components/BlogLayout';
 export default function WiseRevolutThailand() {
   return (
     <BlogLayout
-      title="Wise vs Revolut for Thailand: Which is Better in 2026?"
-      description="Both cards are popular with Thailand travellers. Here's a direct comparison of fees, exchange rates, ATM limits, and practical usability in Thailand."
-      lastUpdated="April 2026"
+      title="Wise vs Revolut for Thailand (2026): Fees, ATM Limits & Which to Choose"
+      description="Wise charges 1.75% above ฿7,000 free; Revolut gives ฿5,000 free on Standard. Full fee comparison for Thailand ATM withdrawals in 2026."
+      lastUpdated="May 2026"
+      slug="wise-revolut-thailand"
       ctaHeading="Compare Wise vs Revolut for your specific withdrawal"
       ctaBody="Enter your home currency and withdrawal amount to see exactly what each card would cost you at a Thai ATM — side by side."
       ctaLabel="Compare Wise vs Revolut →"

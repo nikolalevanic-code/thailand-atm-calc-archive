@@ -8,9 +8,10 @@ import BlogLayout from '@/components/BlogLayout';
 export default function HowMuchCashThailand() {
   return (
     <BlogLayout
-      title="How Much Cash to Bring to Thailand (2026 Guide)"
-      description="How much Thai Baht do you actually need? A practical breakdown by trip length, travel style, and where cards are and aren't accepted."
-      lastUpdated="April 2026"
+      title="How Much Cash to Bring to Thailand in 2026: Daily Budget by Travel Style"
+      description="Budget travellers need ~1,200 THB/day; mid-range ~2,500 THB. Here’s exactly how much cash to bring to Thailand in 2026 by trip length."
+      lastUpdated="May 2026"
+      slug="how-much-cash-thailand"
       ctaHeading="See what your planned withdrawals will cost"
       ctaBody="Once you know how much cash you need, use the calculator to find the cheapest way to get it — based on your specific card and home currency."
       ctaLabel="Plan my withdrawals →"

@@ -8,9 +8,10 @@ import BlogLayout from '@/components/BlogLayout';
 export default function ThailandAtmWithdrawalLimit() {
   return (
     <BlogLayout
-      title="Thailand ATM Withdrawal Limits (2026)"
-      description="How much can you withdraw from a Thai ATM in one transaction? Per day? Here are the limits by bank — and how to work around them efficiently."
-      lastUpdated="April 2026"
+      title="Thailand ATM Withdrawal Limits (2026): 20,000 THB Per Transaction Explained"
+      description="Most Thai ATMs cap withdrawals at 20,000 THB per transaction. Here are the limits by bank for 2026 — and how to avoid paying double fees."
+      lastUpdated="May 2026"
+      slug="thailand-atm-withdrawal-limit"
       ctaHeading="See how fees stack up across multiple transactions"
       ctaBody="If you need more than 20,000 THB, the calculator shows the total cost across multiple withdrawals — so you can plan the most efficient strategy."
       ctaLabel="Calculate multi-transaction cost →"
