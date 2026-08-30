@@ -6,6 +6,7 @@
 
 import { Link } from 'wouter';
 import { useEffect } from 'react';
+import { useSeoMeta } from '@/lib/seo';
 
 interface FaqItem {
   question: string;
@@ -35,13 +36,22 @@ export default function BlogLayout({
   slug,
   faqItems,
 }: BlogLayoutProps) {
+  useSeoMeta({
+    title: `${title} | Thailand ATM Calculator`,
+    description,
+    path: `/blog/${slug}`,
+    type: 'article',
+  });
+
+  const dateModified = lastUpdated === 'August 2026' ? '2026-08-30' : '2026-05-30';
+
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: title,
     description: description,
     url: `https://www.thailand-atm-calculator.com/blog/${slug}`,
-    dateModified: '2026-05-30',
+    dateModified,
     publisher: {
       '@type': 'Organization',
       name: 'Thailand ATM Calculator',
@@ -64,18 +74,6 @@ export default function BlogLayout({
   } : null;
 
   useEffect(() => {
-    const prev = document.title;
-    document.title = `${title} | Thailand ATM Calculator`;
-    // Update or create meta description
-    let meta = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
-    if (!meta) {
-      meta = document.createElement('meta');
-      meta.name = 'description';
-      document.head.appendChild(meta);
-    }
-    const prevDesc = meta.content;
-    meta.content = description;
-
     // Inject Article JSON-LD
     const articleScript = document.createElement('script');
     articleScript.type = 'application/ld+json';
@@ -94,13 +92,11 @@ export default function BlogLayout({
     }
 
     return () => {
-      document.title = prev;
-      if (meta) meta.content = prevDesc;
       articleScript.remove();
       if (faqScript) faqScript.remove();
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [slug]);
+  }, [slug, articleSchema, faqSchema]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -114,10 +110,10 @@ export default function BlogLayout({
               alt="Thailand ATM Calculator"
               className="w-7 h-7 object-contain"
             />
-            <span className="font-display text-base text-white font-medium hidden sm:block">
+            <span className="text-base text-white font-semibold tracking-tight hidden sm:block">
               Thailand ATM Calculator
             </span>
-            <span className="font-display text-base text-white font-medium sm:hidden">
+            <span className="text-base text-white font-semibold tracking-tight sm:hidden">
               ATM Calculator
             </span>
           </a>
@@ -136,7 +132,8 @@ export default function BlogLayout({
             <Link href="/blog" className="text-white/60 text-sm hover:text-white/90 transition-colors no-underline">
               ← All guides
             </Link>
-            <h1 className="font-display text-2xl sm:text-3xl lg:text-4xl text-white font-extrabold mt-3 leading-tight">
+            <p className="mt-5 font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-white/55">฿ Thailand ATM guide</p>
+            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl text-white font-normal mt-2 leading-[1.08]">
               {title}
             </h1>
             <p className="text-white/75 mt-3 text-base leading-relaxed max-xl">

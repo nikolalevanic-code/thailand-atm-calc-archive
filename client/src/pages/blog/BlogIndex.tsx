@@ -5,6 +5,7 @@
  */
 
 import { Link } from 'wouter';
+import { useSeoMeta } from '@/lib/seo';
 
 const articles = [
   {
@@ -28,8 +29,8 @@ const articles = [
   {
     slug: '/blog/best-atm-thailand-foreigners',
     title: 'Best ATM to Use in Thailand for Foreigners (2026)',
-    description: 'Not all Thai ATMs charge the same fee. Here\'s which ATMs are cheapest for foreign cards — and where to find them.',
-    tags: ['AEON ATM', 'ATM comparison'],
+    description: 'How to compare Thai ATM fees, withdrawal limits, and DCC offers before you take out cash.',
+    tags: ['ATM comparison', 'DCC'],
   },
   {
     slug: '/blog/wise-revolut-thailand',
@@ -46,6 +47,12 @@ const articles = [
 ];
 
 export default function BlogIndex() {
+  useSeoMeta({
+    title: 'Thailand ATM & Money Guides (2026) | Thailand ATM Calculator',
+    description: 'Practical Thailand ATM guides covering foreign-card fees, withdrawal limits, currency conversion, travel cards, and cash planning.',
+    path: '/blog',
+  });
+
   return (
     <div className="min-h-screen bg-background">
 
@@ -58,10 +65,10 @@ export default function BlogIndex() {
               alt="Thailand ATM Calculator"
               className="w-7 h-7 object-contain"
             />
-            <span className="font-display text-base text-white font-medium hidden sm:block">
+            <span className="text-base text-white font-semibold tracking-tight hidden sm:block">
               Thailand ATM Calculator
             </span>
-            <span className="font-display text-base text-white font-medium sm:hidden">
+            <span className="text-base text-white font-semibold tracking-tight sm:hidden">
               ATM Calculator
             </span>
           </a>
@@ -76,7 +83,8 @@ export default function BlogIndex() {
       <div className="bg-brand">
         <div className="container py-10 sm:py-14">
           <div className="max-w-2xl">
-            <h1 className="font-display text-2xl sm:text-3xl lg:text-4xl text-white font-extrabold leading-tight">
+            <p className="font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-white/55">฿ Thailand travel money</p>
+            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl text-white font-normal leading-[1.08] mt-2">
               Thailand ATM & Money Guides
             </h1>
             <p className="text-white/75 mt-3 text-base leading-relaxed max-w-xl">

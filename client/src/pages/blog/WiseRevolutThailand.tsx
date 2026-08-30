@@ -10,7 +10,7 @@ export default function WiseRevolutThailand() {
     <BlogLayout
       title="Wise vs Revolut for Thailand (2026): Fees, ATM Limits & Which to Choose"
       description="Wise charges 1.75% above ฿7,000 free; Revolut gives ฿5,000 free on Standard. Full fee comparison for Thailand ATM withdrawals in 2026."
-      lastUpdated="May 2026"
+      lastUpdated="August 2026"
       slug="wise-revolut-thailand"
       ctaHeading="Compare Wise vs Revolut for your specific withdrawal"
       ctaBody="Enter your home currency and withdrawal amount to see exactly what each card would cost you at a Thai ATM — side by side."
@@ -131,7 +131,7 @@ export default function WiseRevolutThailand() {
 
       <h2>What neither card can avoid</h2>
       <p>
-        Both Wise and Revolut still require you to pay the Thai bank's flat ATM fee (250 THB for Visa, 350 THB for Mastercard). Neither card reimburses this fee. To minimise it, use AEON ATMs (150 THB) where available, and always withdraw the maximum amount per transaction. See our guide on <a href="/blog/best-atm-thailand-foreigners">the best ATMs to use in Thailand</a> for more detail.
+        Both Wise and Revolut still require you to pay the Thai bank's displayed foreign-card ATM fee. At many major bank ATMs, the common split is 250 THB for Visa and 350 THB for Mastercard. Neither card generally reimburses this operator fee. Check the screen, withdraw efficiently within safe limits, and see our guide on <a href="/blog/best-atm-thailand-foreigners">the best ATMs to use in Thailand</a> for more detail.
       </p>
       <p>
         Use our <a href="/">free calculator</a> to compare Wise and Revolut side-by-side for your specific withdrawal amount and home currency. You can also read <a href="/blog/how-much-cash-thailand">how much cash to bring to Thailand</a> to plan your total withdrawal budget.

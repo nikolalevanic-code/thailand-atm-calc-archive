@@ -281,7 +281,7 @@ export default function Calculator() {
                     className="w-full pl-7 pr-3 py-2 rounded-md border border-border bg-white text-sm font-mono focus:outline-none focus:ring-2 focus:ring-ring/30"
                   />
                 </div>
-                <span className="text-xs text-muted-foreground">per-transaction fee (AEON ATMs: 150 THB)</span>
+                <span className="text-xs text-muted-foreground">per-transaction fee (check the fee shown on screen)</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="relative w-36">

@@ -10,7 +10,7 @@ import { ChevronDown } from 'lucide-react';
 const FAQS = [
   {
     q: 'Should I always decline the ATM\'s currency conversion offer in Thailand?',
-    a: 'In almost all cases, yes. When a Thai ATM offers to convert your withdrawal to your home currency, it uses its own exchange rate — which is typically 4–6% worse than the mid-market rate. Your card network (Visa, Mastercard, etc.) will apply a much more competitive rate. The only exception might be if your home bank charges a very high foreign transaction fee that outweighs the FX rate difference, which this calculator accounts for.',
+    a: 'In almost all cases, yes. When a Thai ATM offers to convert your withdrawal to your home currency, it uses its own exchange rate, which can be several percentage points worse than the mid-market rate. Choosing Thai Baht lets your card network handle the conversion instead. The calculator estimates both scenarios, including your selected card’s fees.',
   },
   {
     q: 'What is Dynamic Currency Conversion (DCC)?',
@@ -18,7 +18,7 @@ const FAQS = [
   },
   {
     q: 'How accurate are these estimates?',
-    a: 'The calculator uses live mid-market exchange rates (refreshed daily) and published fee schedules from official bank websites, verified in March 2026. The FX rate multipliers (card network and DCC) are calibrated from real transaction data. Results are estimates — actual charges depend on your specific card terms, the ATM used, and the exchange rate at the exact moment of your transaction. Always check your bank\'s current fee schedule before travelling.',
+    a: 'The calculator uses live mid-market exchange rates, refreshed in your browser at least every 12 hours, and researched card fee schedules. The FX-rate multipliers are calibrated from real transaction data. Results are estimates: actual charges depend on your card terms, the ATM used, the displayed ATM fee, and the rate at the exact moment of the withdrawal. Always check your bank’s current fee schedule and the ATM screen before confirming.',
   },
   {
     q: 'Why does my bank charge a fee even when I decline conversion?',
@@ -26,7 +26,7 @@ const FAQS = [
   },
   {
     q: 'Which Thai banks charge the highest ATM fees for foreign cards?',
-    a: 'Most major Thai banks charge a flat fee of 220–250 THB per withdrawal for foreign cards. This is the "Thai ATM access fee" in the calculator (default: 250 THB). The fee is the same regardless of whether you accept or decline DCC. Some smaller ATM networks may charge differently. Bangkok Bank, SCB, Kasikorn, Krungthai, and Krungsri all charge in this range.',
+    a: 'At many major Thai bank ATMs, the displayed foreign-card fee is 250 THB for Visa and 350 THB for Mastercard. This ATM access fee is separate from DCC and applies whether you accept or decline conversion. Fees can change or vary by ATM, so check the screen before confirming and use the calculator’s fee override when needed.',
   },
   {
     q: 'What is the best card to use at Thai ATMs?',

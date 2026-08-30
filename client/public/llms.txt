@@ -8,7 +8,7 @@ Thailand ATM Calculator helps tourists and travellers understand the full cost o
 
 Key facts:
 - Thai ATMs charge 250 THB (Visa) or 350 THB (Mastercard) per foreign card withdrawal as of 2026
-- AEON Bank ATMs charge a lower fee of 150 THB per withdrawal
+- ATM fees and availability can change; visitors should always confirm the fee displayed at the ATM
 - Dynamic currency conversion (DCC) typically adds 3–7% to the cost of a withdrawal
 - The calculator covers 102 cards across 17 countries including Australia, UK, USA, Germany, France, Japan, Singapore, India, Turkey, and more
 

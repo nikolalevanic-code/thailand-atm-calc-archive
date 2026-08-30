@@ -119,11 +119,13 @@
     -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4 {
-    font-family: 'Manrope', system-ui, sans-serif;
+    font-family: 'DM Serif Display', Georgia, serif;
     line-height: 1.2;
+    letter-spacing: -0.018em;
   }
   .font-display {
-    font-family: 'Manrope', system-ui, sans-serif;
+    font-family: 'DM Serif Display', Georgia, serif;
+    letter-spacing: -0.018em;
   }
   .font-mono, code, .tabular-nums {
     font-family: 'DM Mono', 'Courier New', monospace;
@@ -179,6 +181,25 @@
   .bg-worse { background-color: var(--worse); }
   .bg-worse-surface { background-color: var(--worse-surface); }
 
+  .baht-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--brand-purple);
+    font-family: 'DM Mono', 'Courier New', monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    line-height: 1;
+  }
+
+  .baht-divider::before,
+  .baht-divider::after {
+    content: '';
+    height: 1px;
+    background: color-mix(in oklab, var(--brand-purple) 22%, transparent);
+    flex: 1;
+  }
+
   /* Section divider with ฿ symbol */
   .section-divider {
     display: flex;
@@ -225,18 +246,18 @@
 
   /* ── Blog article prose styles ── */
   .prose-article h2 {
-    font-family: 'Manrope', system-ui, sans-serif;
+    font-family: 'DM Serif Display', Georgia, serif;
     font-size: 1.375rem;
-    font-weight: 700;
+    font-weight: 400;
     color: oklch(0.15 0.01 65);
     margin-top: 2.5rem;
     margin-bottom: 0.75rem;
     line-height: 1.3;
   }
   .prose-article h3 {
-    font-family: 'Manrope', system-ui, sans-serif;
+    font-family: 'DM Serif Display', Georgia, serif;
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: 400;
     color: oklch(0.15 0.01 65);
     margin-top: 1.75rem;
     margin-bottom: 0.5rem;
@@ -282,7 +303,7 @@
     text-align: left;
     padding: 0.6rem 0.875rem;
     border-bottom: 2px solid var(--border);
-    font-family: 'Manrope', system-ui, sans-serif;
+    font-family: 'DM Sans', system-ui, sans-serif;
     font-size: 0.8125rem;
   }
   .prose-article td {

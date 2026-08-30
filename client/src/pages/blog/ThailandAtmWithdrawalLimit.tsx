@@ -10,7 +10,7 @@ export default function ThailandAtmWithdrawalLimit() {
     <BlogLayout
       title="Thailand ATM Withdrawal Limits (2026): 20,000 THB Per Transaction Explained"
       description="Most Thai ATMs cap withdrawals at 20,000 THB per transaction. Here are the limits by bank for 2026 — and how to avoid paying double fees."
-      lastUpdated="May 2026"
+      lastUpdated="August 2026"
       slug="thailand-atm-withdrawal-limit"
       ctaHeading="See how fees stack up across multiple transactions"
       ctaBody="If you need more than 20,000 THB, the calculator shows the total cost across multiple withdrawals — so you can plan the most efficient strategy."
@@ -62,11 +62,6 @@ export default function ThailandAtmWithdrawalLimit() {
             <td>TMBThanachart (TTB)</td>
             <td>20,000 THB</td>
             <td>Less common but widely distributed</td>
-          </tr>
-          <tr>
-            <td>AEON Bank</td>
-            <td>20,000 THB</td>
-            <td>Lower fee (150 THB); found in Big C, Tesco Lotus</td>
           </tr>
           <tr>
             <td>UOB Thailand</td>
@@ -146,7 +141,7 @@ export default function ThailandAtmWithdrawalLimit() {
 
       <h2>Summary</h2>
       <p>
-        Most Thai ATMs limit foreign card withdrawals to <strong>20,000 THB per transaction</strong>. Your home bank may impose an additional daily limit. To minimise fees, always withdraw the maximum amount per transaction, use a Visa card over Mastercard, and consider AEON ATMs for their lower 150 THB flat fee.
+        Most Thai ATMs limit foreign card withdrawals to <strong>20,000 THB per transaction</strong>. Your home bank may impose an additional daily limit. To minimise fees, make fewer larger withdrawals when it is safe, check the displayed ATM fee, and use the card network that gives you the lower displayed fee.
       </p>
       <p>
         Use our <a href="/">free calculator</a> to see the total cost of your planned withdrawals, including multi-transaction scenarios. You can also compare the cheapest ATMs in Thailand in our guide to the <a href="/blog/best-atm-thailand-foreigners">best ATM to use in Thailand for foreigners</a>.

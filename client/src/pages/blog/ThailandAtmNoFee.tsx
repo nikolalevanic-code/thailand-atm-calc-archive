@@ -10,7 +10,7 @@ export default function ThailandAtmNoFee() {
     <BlogLayout
       title="How to Withdraw Money in Thailand Without Fees (2026): Best Cards & Strategy"
       description="Wise, Revolut, and Schwab can eliminate your home bank’s charges entirely. Here’s the full strategy to minimise ATM fees in Thailand in 2026."
-      lastUpdated="May 2026"
+      lastUpdated="August 2026"
       slug="thailand-atm-no-fee"
       ctaHeading="Compare your card against the fee-free alternatives"
       ctaBody="See exactly how much you'd save by switching to Wise, Revolut, or Schwab — for your specific withdrawal amount and home currency."
@@ -36,7 +36,7 @@ export default function ThailandAtmNoFee() {
           <tr>
             <td>Thai ATM flat fee (250–350 THB)</td>
             <td>Thai bank</td>
-            <td>Partially — use AEON (150 THB)</td>
+            <td>Usually unavoidable; confirm the displayed fee</td>
           </tr>
           <tr>
             <td>Foreign transaction fee (1.5–3%)</td>
@@ -92,12 +92,12 @@ export default function ThailandAtmNoFee() {
         <p><strong>Tip:</strong> If you already have a Wise or Revolut account, make sure you load it with your home currency before you travel. Converting at home (or in the app) gives you more control over the rate than converting at the ATM.</p>
       </div>
 
-      <h2>The AEON ATM advantage</h2>
+      <h2>Do not rely on historical low-fee ATM claims</h2>
       <p>
-        Even with a fee-free card, you will still pay the Thai ATM's flat fee. AEON Bank ATMs charge <strong>150 THB per withdrawal</strong> — significantly less than the 250 THB (Visa) or 350 THB (Mastercard) charged by Bangkok Bank, KBank, SCB, and most other Thai banks. AEON ATMs are found inside Big C and Lotus's (formerly Tesco Lotus) supermarkets across Thailand.
+        Even with a fee-free card, you will usually pay the Thai ATM's displayed foreign-card fee. Older Thailand travel guides sometimes mention a lower AEON fee, but we cannot verify a current foreign-card AEON ATM network or locations. Treat any historical low-fee claim with caution and use the amount shown on the ATM screen.
       </p>
       <p>
-        Using a fee-free card at an AEON ATM is the closest most tourists can get to a truly low-cost withdrawal in Thailand.
+        The more dependable way to lower costs is to use a card with low overseas fees, make fewer transactions when it is safe to do so, and decline DCC by choosing Thai Baht.
       </p>
 
       <h2>Always decline DCC</h2>
@@ -111,12 +111,12 @@ export default function ThailandAtmNoFee() {
       <h2>Summary: the lowest-cost withdrawal strategy</h2>
       <ol>
         <li>Use a fee-free travel card (Wise, Revolut, Schwab, Starling).</li>
-        <li>Find an AEON ATM (150 THB flat fee vs 250–350 THB elsewhere).</li>
-        <li>Withdraw the maximum amount per transaction to minimise the number of flat fees paid.</li>
-        <li>Always choose Thai Baht — never accept DCC.</li>
+        <li>Check the fee displayed by the ATM and use the calculator override if it differs from the default.</li>
+        <li>Withdraw the maximum amount per transaction that is sensible and safe, to minimise the number of flat fees paid.</li>
+        <li>Always choose Thai Baht — do not accept the ATM’s conversion offer.</li>
       </ol>
       <p>
-        Following all four steps, a ฿20,000 withdrawal with a Wise card at an AEON ATM costs approximately 150 THB (~$4) in total fees — compared to $25–35 with a standard bank card at a major Thai bank ATM.
+        Following these steps can reduce the avoidable parts of your withdrawal cost, but the final result still depends on your card terms, the displayed Thai ATM fee, and the live rate. Use the calculator to compare your actual card and intended withdrawal amount before you confirm.
       </p>
       <p>
         Use our <a href="/">free calculator</a> to compare your specific card against the alternatives and see the exact cost difference. You can also read about <a href="/blog/how-much-cash-thailand">how much cash to bring to Thailand</a> to plan your total withdrawal strategy.

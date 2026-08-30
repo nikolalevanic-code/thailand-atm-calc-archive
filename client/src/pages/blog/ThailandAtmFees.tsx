@@ -4,19 +4,20 @@
  */
 
 import BlogLayout from '@/components/BlogLayout';
+import ArticleCalculatorCta from '@/components/ArticleCalculatorCta';
 
 const faqItems = [
   {
     question: 'How much does a Thai ATM charge for foreign cards?',
-    answer: 'As of 2026, most Thai ATMs charge 250 THB per withdrawal for Visa cards and 350 THB for Mastercard cards. AEON Bank ATMs are the exception, charging a lower flat fee of 150 THB regardless of card network.',
+    answer: 'At many major Thai bank ATMs, the foreign-card fee is 250 THB per withdrawal for Visa cards and 350 THB for Mastercard cards. Fees can change or vary by machine, so check the screen before confirming and use the calculator’s fee override if needed.',
   },
   {
     question: 'Should I accept or decline DCC at a Thai ATM?',
     answer: 'Always decline DCC (dynamic currency conversion) and choose to be charged in Thai Baht. When you accept DCC, the ATM applies its own exchange rate, which is typically 3–7% worse than the Visa or Mastercard network rate. Choosing Thai Baht lets your card network handle the conversion at a better rate.',
   },
   {
-    question: 'What is the cheapest ATM to use in Thailand?',
-    answer: 'AEON Bank ATMs are the cheapest for foreign cards, charging 150 THB per withdrawal. They are located inside Big C and Lotus\'s (formerly Tesco Lotus) supermarkets. All other major Thai banks — Bangkok Bank, KBank, SCB, Krungthai, Krungsri — charge 250 THB (Visa) or 350 THB (Mastercard).',
+    question: 'What should I look for when choosing a Thai ATM?',
+    answer: 'Use a reliable major-bank ATM, check the fee and transaction limit displayed before you confirm, and choose Thai Baht rather than the ATM’s home-currency conversion offer. Historical guides may mention a lower AEON fee, but we cannot verify a current foreign-card AEON ATM network.',
   },
   {
     question: 'What is the ATM withdrawal limit in Thailand?',
@@ -24,7 +25,7 @@ const faqItems = [
   },
   {
     question: 'Do travel cards like Wise and Revolut avoid Thai ATM fees?',
-    answer: 'Wise and Revolut eliminate your home bank\'s foreign transaction fee and international ATM fee. However, they cannot waive the Thai bank\'s flat fee (150–350 THB), which is charged by the ATM operator regardless of which card you use. Wise offers up to ฿7,000 free per month before charging 1.75%; Revolut Standard offers up to ฿5,000 free.',
+    answer: 'Wise and Revolut may reduce or eliminate some home-bank fees, depending on the card, currency, and allowance. They cannot waive the Thai ATM operator’s displayed foreign-card fee. Check the current card terms and the ATM screen before confirming.',
   },
   {
     question: 'Is it better to use Visa or Mastercard at Thai ATMs?',
@@ -39,9 +40,9 @@ const faqItems = [
 export default function ThailandAtmFees() {
   return (
     <BlogLayout
-      title="Thailand ATM Fees (2026): 250–350 THB Flat Fee + Hidden Conversion Charges"
-      description="Thai ATMs charge 250 THB (Visa) or 350 THB (Mastercard) per withdrawal, plus a hidden DCC conversion fee. Every charge explained for 2026."
-      lastUpdated="May 2026"
+      title="Thailand ATM Fees (2026): 250–350 THB Fee + Conversion Costs"
+      description="Understand Thai ATM fees, Visa and Mastercard charges, card costs, and the conversion offer to decline before you withdraw."
+      lastUpdated="August 2026"
       slug="thailand-atm-fees"
       faqItems={faqItems}
       ctaHeading="Calculate the exact cost of your withdrawal"
@@ -52,6 +53,12 @@ export default function ThailandAtmFees() {
         Withdrawing cash from an ATM in Thailand costs more than most tourists expect. The headline fee — the one Thai banks display prominently — is just one part of the picture. By the time your bank processes the transaction, you may have paid two or three separate charges on top of the exchange rate spread. This guide breaks down exactly what those fees are, who charges them, and which ones you can avoid. For the best cards to minimise these costs, see our guide on <a href="/blog/thailand-atm-no-fee">how to withdraw money in Thailand without fees</a>. For per-bank withdrawal caps, see <a href="/blog/thailand-atm-withdrawal-limit">Thailand ATM withdrawal limits</a>.
       </p>
 
+      <ArticleCalculatorCta
+        title="See your estimated withdrawal total"
+        body="Compare Thai ATM fees, your card’s charges, and the effect of accepting or declining the ATM’s conversion offer."
+        label="Calculate my withdrawal cost →"
+      />
+
       <h2>The three layers of ATM fees in Thailand</h2>
       <p>
         Every ATM withdrawal in Thailand involves up to three separate fee layers, each charged by a different party. Most tourists are aware of one, unaware of the second, and completely blindsided by the third.
@@ -59,31 +66,31 @@ export default function ThailandAtmFees() {
 
       <h3>Layer 1: The Thai ATM flat fee</h3>
       <p>
-        Thai banks charge a flat fee on every foreign card withdrawal. As of 2026, the standard rates across all major Thai banks are:
+        Many major Thai banks charge a flat fee on every foreign-card withdrawal. The calculator uses the following network-aware defaults, but you should check the fee shown on the ATM screen before confirming:
       </p>
       <table>
         <thead>
           <tr>
             <th>Card network</th>
             <th>Fee per withdrawal</th>
-            <th>Exception</th>
+            <th>What to check</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>Visa</td>
             <td>250 THB (~$7 USD)</td>
-            <td>AEON: 150 THB</td>
+            <td>Confirm the fee on screen</td>
           </tr>
           <tr>
             <td>Mastercard</td>
             <td>350 THB (~$10 USD)</td>
-            <td>AEON: 150 THB</td>
+            <td>Confirm the fee on screen</td>
           </tr>
         </tbody>
       </table>
       <p>
-        This fee is charged by Bangkok Bank, Kasikorn Bank (KBank), SCB, Krungthai, Krungsri, TMBThanachart, and most other major Thai banks. The one notable exception is <strong>AEON Bank ATMs</strong>, which charge a lower flat fee of 150 THB per withdrawal regardless of card network. AEON ATMs are located inside Big C and Lotus's supermarkets across Thailand.
+        These defaults reflect common displayed fees at Bangkok Bank, Kasikorn Bank (KBank), SCB, Krungthai, Krungsri, TMBThanachart, and other major Thai bank ATMs. Fees can vary or change. Older guides may mention a lower AEON foreign-card ATM fee, but we cannot verify a current AEON network or availability, so it is not used as a current recommendation here.
       </p>
       <div className="callout">
         <p><strong>Visa vs Mastercard:</strong> The 100 THB Mastercard premium is a relatively recent change. If you have both a Visa and a Mastercard, use the Visa card at Thai ATMs — it saves 100 THB on every single transaction.</p>
@@ -175,7 +182,7 @@ export default function ThailandAtmFees() {
 
       <h2>Fee comparison by Thai bank</h2>
       <p>
-        The Thai ATM flat fee is the same across all major banks except AEON. The table below shows the current fees and per-transaction limits:
+        The table below shows the calculator’s current major-bank fee defaults and typical per-transaction limits. Treat them as planning estimates and confirm the ATM screen before continuing:
       </p>
       <table>
         <thead>
@@ -187,12 +194,6 @@ export default function ThailandAtmFees() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><strong>AEON Bank</strong></td>
-            <td><strong>150 THB</strong></td>
-            <td><strong>150 THB</strong></td>
-            <td>20,000 THB</td>
-          </tr>
           <tr>
             <td>Bangkok Bank</td>
             <td>250 THB</td>
@@ -238,7 +239,7 @@ export default function ThailandAtmFees() {
         </tbody>
       </table>
       <p>
-        For a full guide to which ATMs are cheapest and where to find them, see <a href="/blog/best-atm-thailand-foreigners">best ATMs in Thailand for foreigners</a>.
+        For a practical guide to choosing an ATM, checking fees, and declining conversion, see <a href="/blog/best-atm-thailand-foreigners">best ATMs in Thailand for foreigners</a>.
       </p>
 
       <h2>How to reduce your ATM fees in Thailand</h2>
@@ -252,20 +253,20 @@ export default function ThailandAtmFees() {
         <strong>2. Always decline DCC.</strong> Choose Thai Baht every time the ATM asks. This is the single most common and costly mistake tourists make — and it is completely avoidable.
       </p>
       <p>
-        <strong>3. Use AEON ATMs.</strong> At 150 THB per withdrawal versus 250–350 THB at other banks, AEON saves 100–200 THB per transaction. Find them inside Big C and Lotus's supermarkets. See our guide on <a href="/blog/best-atm-thailand-foreigners">best ATMs in Thailand for foreigners</a>.
+        <strong>3. Withdraw larger amounts less often.</strong> The Thai ATM fee is usually per transaction, not per baht. Provided it is safe and within your card and ATM limits, fewer withdrawals reduce the number of flat fees paid. See <a href="/blog/thailand-atm-withdrawal-limit">Thailand ATM withdrawal limits</a> for planning guidance.
       </p>
       <p>
-        <strong>4. Withdraw larger amounts less frequently.</strong> The Thai ATM flat fee is the same whether you withdraw ฿3,000 or ฿20,000. Two withdrawals of ฿10,000 cost twice the flat fee of one withdrawal of ฿20,000. Maximise each transaction up to the 20,000 THB limit where possible.
+        <strong>4. Check the displayed ATM fee.</strong> Individual machines can vary. If the displayed fee differs from the calculator default, use the manual Thai ATM fee setting so your result stays relevant.
       </p>
       <p>
-        <strong>5. Use Visa over Mastercard.</strong> If you have both, use your Visa card — it saves 100 THB per transaction at every Thai bank except AEON.
+        <strong>5. Use Visa over Mastercard where the displayed fee follows the common split.</strong> If you have both, Visa may save 100 THB per transaction at many major Thai bank ATMs. Confirm the screen because fees can change.
       </p>
 
       <h2>Frequently asked questions</h2>
 
       <h3>How much does a Thai ATM charge for foreign cards?</h3>
       <p>
-        As of 2026, most Thai ATMs charge 250 THB per withdrawal for Visa cards and 350 THB for Mastercard cards. AEON Bank ATMs are the exception, charging 150 THB regardless of card network.
+        At many major Thai bank ATMs, foreign cards are charged 250 THB for Visa or 350 THB for Mastercard. The ATM screen is the source of truth for a specific withdrawal because fees can change or vary by machine.
       </p>
 
       <h3>Should I accept or decline DCC at a Thai ATM?</h3>
@@ -275,7 +276,7 @@ export default function ThailandAtmFees() {
 
       <h3>Do travel cards like Wise and Revolut avoid Thai ATM fees?</h3>
       <p>
-        Wise and Revolut eliminate your home bank's foreign transaction fee and international ATM fee. However, they cannot waive the Thai bank's flat fee (150–350 THB), which is charged by the ATM operator regardless of which card you use. Wise offers up to ฿7,000 free per month before charging 1.75%; Revolut Standard offers up to ฿5,000 free. For a direct comparison, see <a href="/blog/wise-revolut-thailand">Wise vs Revolut for Thailand</a>.
+        Wise and Revolut may reduce or eliminate some home-bank fees, subject to the card, currency, and allowance. They cannot waive the Thai bank's displayed foreign-card fee. For a direct comparison, see <a href="/blog/wise-revolut-thailand">Wise vs Revolut for Thailand</a>.
       </p>
 
       <h3>Are airport ATMs in Thailand more expensive?</h3>
@@ -285,7 +286,7 @@ export default function ThailandAtmFees() {
 
       <h2>Summary</h2>
       <p>
-        Thai ATM fees in 2026 consist of three layers: the local bank's flat fee (150–350 THB depending on the ATM and card network), your home bank's foreign transaction charges, and the exchange rate spread — which is dramatically worse if you accept DCC. The optimal strategy is to use a travel-optimised card, always decline the ATM's conversion offer, use AEON ATMs where available, and maximise each withdrawal up to the 20,000 THB per-transaction limit.
+        Thai ATM fees in 2026 can include three layers: the local bank's displayed flat fee, your home bank's foreign-transaction charges, and the exchange-rate spread—which is generally worse if you accept DCC. The practical strategy is to use a travel-optimised card, always decline the ATM's conversion offer, check the displayed fee, and make fewer withdrawals within your safe and sensible cash limit.
       </p>
       <p>
         Use our <a href="/">free calculator</a> to see exactly what your specific card and withdrawal amount will cost — with a side-by-side comparison of accepting vs declining DCC.

@@ -166,3 +166,10 @@ Three distinct design approaches. One will be selected and committed to fully.
 ## Selected Approach: **Idea B — Calm Fintech Utility**
 
 Rationale: The tool's primary job is to answer a specific question clearly and quickly. The Swiss Modernism approach keeps the calculator dominant, uses colour purposefully (purple = brand, teal = "good choice", amber = "bad choice"), and avoids both the sterility of pure white fintech and the heaviness of editorial design. DM Serif Display gives warmth and authority to headings without being decorative. The live-calculation pattern (no submit button) reduces friction on mobile.
+
+## Style Decisions
+
+- Purple `#4A1E8C` is reserved for primary actions, selected states, key labels, the compact navigation/masthead, and small brand marks; expansive homepage surfaces use warm white.
+- Major headlines and section titles use `DM Serif Display`; body and UI remain `DM Sans`; numeric values use `DM Mono`.
+- The generated-image hero specified in the original layout is intentionally omitted because the project decision removed imagery from the site. The homepage instead uses an asymmetric, useful ATM-decision checklist on desktop.
+- A small `฿` divider or guide marker appears on public content pages as a recurring Thailand ATM Calculator signature motif.

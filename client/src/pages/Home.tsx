@@ -9,8 +9,15 @@
 import Calculator from '@/components/Calculator';
 import FAQ from '@/components/FAQ';
 import TipsSection from '@/components/TipsSection';
+import { useSeoMeta } from '@/lib/seo';
 
 export default function Home() {
+  useSeoMeta({
+    title: 'Thailand ATM Fees Calculator — Avoid Hidden Conversion Fees',
+    description: 'Find out how much Thai ATMs really cost you. Compare exchange rates, bank fees, and avoid hidden conversion charges that can add 5–10% to your withdrawal.',
+    path: '/',
+  });
+
   return (
     <div className="min-h-screen bg-background">
 
@@ -19,10 +26,10 @@ export default function Home() {
         <div className="container flex items-center justify-between h-14">
           <a href="/" className="flex items-center gap-2 no-underline">
             <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663310737769/Wco5JLMAZnC5jH2ae5jL7D/calc-icon-baht-user_2cd03a0a.png" alt="Thailand ATM Calculator" className="w-7 h-7 object-contain" />
-            <span className="font-display text-base text-white font-medium hidden sm:block">
+            <span className="text-base text-white font-semibold tracking-tight hidden sm:block">
               Thailand ATM Calculator
             </span>
-            <span className="font-display text-base text-white font-medium sm:hidden">
+            <span className="text-base text-white font-semibold tracking-tight sm:hidden">
               ATM Calculator
             </span>
           </a>
@@ -37,28 +44,43 @@ export default function Home() {
       </nav>
 
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-brand">
+      <section className="relative overflow-hidden border-b border-border bg-[#fafaf8]">
         <div className="container py-10 sm:py-14 lg:py-16">
-          <div className="max-w-2xl space-y-6">
-            <div className="space-y-4">
-              <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl text-white leading-tight font-extrabold">
-                How much will your ATM withdrawal cost in Thailand?
-              </h1>
-              <p className="text-white/80 text-base leading-relaxed max-w-xl">
-                Thai ATMs are notoriously expensive for tourists, with lots of confusing fees baked in.
-                This site was built to give you a better idea of how much a withdrawal will cost you.
-                Enter your withdrawal amount and home currency to get your estimated cost, including
-                bank and exchange rate-related fees. We'll also suggest whether to accept or decline
-                the ATM's conversion offer.
-              </p>
-              <div className="inline-flex items-center gap-2 text-xs font-medium text-white/70 bg-white/10 px-3 py-1.5 rounded-full">
-                <span className="w-1.5 h-1.5 rounded-full bg-white/60" />
-                Free · 102 cards across 17 countries
+          <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,720px)_minmax(220px,1fr)] lg:gap-14">
+            <div className="max-w-2xl space-y-6">
+              <div className="space-y-4">
+                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-brand">
+                  <span className="font-mono text-base leading-none">฿</span>
+                  Thailand ATM costs
+                </div>
+                <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl text-foreground leading-[1.06] font-normal">
+                  How much will your ATM withdrawal cost in Thailand?
+                </h1>
+                <p className="text-foreground/75 text-base leading-relaxed max-w-xl">
+                  See your estimated total before you withdraw. Enter your withdrawal amount and home
+                  currency to compare Thai ATM fees, your card&apos;s charges, and the ATM&apos;s conversion offer.
+                  We&apos;ll show why choosing Thai Baht is usually the lower-cost option.
+                </p>
+                <div className="inline-flex items-center gap-2 text-xs font-medium text-brand bg-brand-purple-surface px-3 py-1.5 rounded-full">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand" />
+                  Free · 102 cards across 17 countries
+                </div>
               </div>
+
+              {/* Calculator */}
+              <Calculator />
             </div>
 
-            {/* Calculator */}
-            <Calculator />
+            <aside className="hidden lg:block pb-7" aria-label="ATM withdrawal checklist">
+              <div className="border-l-2 border-brand bg-white px-6 py-6 shadow-sm">
+                <p className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-brand">At the ATM</p>
+                <ol className="mt-5 space-y-4 text-sm text-foreground/80">
+                  <li className="flex gap-3"><span className="font-mono text-brand">01</span><span>Check the foreign-card fee shown on screen.</span></li>
+                  <li className="flex gap-3"><span className="font-mono text-brand">02</span><span>Choose Thai Baht, not the ATM&apos;s conversion.</span></li>
+                  <li className="flex gap-3"><span className="font-mono text-brand">03</span><span>Use your card network and withdrawal limit to compare the result.</span></li>
+                </ol>
+              </div>
+            </aside>
           </div>
         </div>
       </section>
@@ -83,6 +105,7 @@ export default function Home() {
                 See all guides →
               </a>
             </div>
+            <div className="baht-divider mb-6" aria-hidden="true">฿</div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {[
                 {
@@ -98,7 +121,7 @@ export default function Home() {
                 {
                   href: '/blog/best-atm-thailand-foreigners',
                   title: 'Best ATM to use in Thailand',
-                  desc: 'AEON charges 150 THB. Most others charge 250–350 THB.',
+                  desc: 'What to check at the screen: fees, limits, and conversion choices.',
                 },
                 {
                   href: '/blog/wise-revolut-thailand',
@@ -182,7 +205,7 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10">
               {[
                 { stat: '~7%', label: 'Typical DCC rate penalty vs mid-market', color: 'text-worse' },
-                { stat: '250 THB', label: 'Standard Thai ATM access fee (all major banks)', color: 'text-foreground' },
+                { stat: '250–350 THB', label: 'Typical Thai ATM access fee, by card network', color: 'text-foreground' },
                 { stat: '102 cards', label: 'Researched across 17 tourist-origin countries', color: 'text-brand' },
               ].map((item, i) => (
                 <div key={i} className="bg-white rounded-lg p-4 text-center border border-border">
@@ -291,7 +314,7 @@ export default function Home() {
                 <strong>Card fee database:</strong> 102 card profiles across 17 tourist-origin countries, sourced from official bank fee schedules and product pages. Last verified March 2026. Confidence levels (high/medium) are shown for each card. We do not include low-confidence data.
               </p>
               <p>
-                <strong>Thai ATM fees:</strong> Most major Thai ATMs (SCB, Bangkok Bank, Kasikorn, Krungthai, Krungsri) charge 250 THB per withdrawal for Visa cards and 350 THB for Mastercard cards. The calculator defaults to the appropriate fee based on your selected card network. AEON ATMs charge a lower fee of 150 THB regardless of network. You can override the fee in the calculator settings.
+                <strong>Thai ATM fees:</strong> Most major Thai ATMs (SCB, Bangkok Bank, Kasikorn, Krungthai, Krungsri) charge 250 THB per withdrawal for Visa cards and 350 THB for Mastercard cards. The calculator defaults to the appropriate fee based on your selected card network. Fees and availability can change, so always check the ATM screen; you can override the fee in the calculator settings.
               </p>
             </div>
           </div>
